@@ -20,9 +20,12 @@ github_username: robotics-club-citk
 # Build settings
 markdown: kramdown
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+
 exclude:
   - README.md
   - Gemfile

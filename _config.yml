@@ -21,14 +21,22 @@ github_username: robotics-club-citk
 markdown: kramdown
 permalink: pretty
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: "members"
+    values:
+      layout: "member"
+
+
 
 collections:
-  -
-    members:
-      output: true
-  -
-    projects:
-      output: true
+  members:
+    output: true
+    permalink: /members/:path/
+  projects:
+    output: true
 
 
 sass:

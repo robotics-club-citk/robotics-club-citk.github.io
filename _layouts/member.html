@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<!--User Details-->
+<section class="section">
+  <div class="container">
+    <div class="columns">
+
+      <div class="column">
+        <div class="box has-text-centered">
+          <figure class="r-avatar image is-128x128">
+            <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ page.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-uppercase is-size-6">{{ page.name }}</p>
+          <p class="r-role"><span class="tag is-rounded is-primary">{{ page.role }}</span></p>
+          <p class="is-size-7">Robotics Club CIT Kokrajhar</p>
+        </div>
+      </div>
+
+      <div class="column">
+        <ul class="list">
+          <li class="list-item r-list-item">
+            <p>
+              <span class="icon has-text-danger">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <span class="r-user-attribute">Email</span>
+            </p>
+            <p>{{ page.email }}</p>
+          </li>
+          <li class="list-item r-list-item">
+            <p>
+              <span class="icon has-text-success">
+                <i class="fa fa-phone"></i>
+              </span>
+              <span class="r-user-attribute">Phone</span>
+            </p>
+            <p>{{ page.phone }}</p>
+          </li>
+          <li class="list-item r-list-item">
+            <p>
+              <span class="icon has-text-link">
+                <i class="fa fa-bookmark"></i>
+              </span>
+              <span class="r-user-attribute">Roll number</span>
+            </p>
+            <p>{{ page.roll }}</p>
+          </li>
+          <li class="list-item r-list-item">
+            <p>
+              <span class="icon has-text-primary">
+                <i class="fa fa-graduation-cap"></i>
+              </span>
+              <span class="r-user-attribute">Branch</span>
+            </p>
+            <p>{{ page.education }}, {{ page.branch }}</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

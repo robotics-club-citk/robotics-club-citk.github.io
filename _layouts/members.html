@@ -1,0 +1,116 @@
+---
+layout: default
+---
+
+<!--title & links-->
+<div class="section">
+  <div class="container">
+    <h1 class="title">Members</h1>
+    <h3 class="subtitle">Robotics Club CIT Kokrajhar</h3>
+    <div class="top-links field is-grouped">
+      <p class="control">
+        <a class="button is-primary" href="#faculty">
+          Faculty
+        </a>
+      </p>
+      <p class="control">
+        <a class="button is-danger" href="#core-members">
+          Core Members
+        </a>
+      </p>
+      <p class="control">
+        <a class="button is-link" href="#members">
+          Members
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!--member cards-->
+<div class="section">
+  <div class="container">
+
+    {% assign members = site.members | where:'type','faculty' | sort: 'priority' | reverse %}
+    <h1 class="title" id="faculty">Faculty</h1>
+    <div class="columns is-multiline">
+      {% for member in members %}
+      <div class="column is-one-quarter-tablet is-one-fifth-desktop">
+        <div class="box has-text-centered">
+          <figure class="r-avatar image is-96x96">
+            <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-capitalized">{{ member.name }}</p>
+          <p class="r-role"><span class="tag">{{ member.role }}</span></p>
+          <hr>
+          <div>
+            <a class="r-profile-btn button is-small is-rounded is-primary" href="{{ member.url }}">
+              <span class="icon is-small">
+                <i class="fa fa-user"></i>
+              </span>
+              <span>View Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <hr>
+
+    {% assign members = site.members | where:'type','core' | sort: 'priority' | reverse %}
+    <h1 class="title" id="core-members">Core Members</h1>
+    <div class="columns is-multiline">
+      {% for member in members %}
+      <div class="column is-one-quarter-tablet is-one-fifth-desktop">
+        <div class="box has-text-centered">
+          <figure class="r-avatar image is-96x96">
+            <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-capitalized">{{ member.name }}</p>
+          <p class="r-role"><span class="tag">{{ member.role }}</span></p>
+          <hr>
+          <div>
+            <a class="r-profile-btn button is-small is-rounded is-primary" href="{{ member.url }}">
+              <span class="icon is-small">
+                <i class="fa fa-user"></i>
+              </span>
+              <span>View Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <hr>
+
+    {% assign members = site.members | where:'type','member' | sort: 'priority' | reverse %}
+    <h1 class="title" id="members">Members</h1>
+    <div class="columns is-multiline">
+      {% for member in members %}
+      <div class="column is-one-quarter-tablet is-one-fifth-desktop">
+        <div class="box has-text-centered">
+          <figure class="r-avatar image is-96x96">
+            <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-capitalized">{{ member.name }}</p>
+          <p class="r-role"><span class="tag">{{ member.role }}</span></p>
+          <hr>
+          <div>
+            <a class="r-profile-btn button is-small is-rounded is-primary" href="{{ member.url }}">
+              <span class="icon is-small">
+                <i class="fa fa-user"></i>
+              </span>
+              <span>View Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{{ content }}

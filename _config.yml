@@ -19,6 +19,16 @@ github_username: robotics-club-citk
 
 # Build settings
 markdown: kramdown
+permalink: pretty
+
+
+collections:
+  -
+    members:
+      output: true
+  -
+    projects:
+      output: true
 
 
 sass:

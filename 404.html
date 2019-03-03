@@ -1,5 +1,6 @@
 ---
 layout: default
+permalink: 404.html
 ---
 
 <style type="text/css" media="screen">
@@ -14,11 +15,15 @@ layout: default
     line-height: 1;
     letter-spacing: -1px;
   }
+  .animation{
+    background-image: url('{{ site.baseurl }}/assets/img/404.gif');
+    height: 400px;
+    background-position: center;
+  }
 </style>
 
 <div class="container">
   <h1>404</h1>
-
+  <div class="animation"></div>
   <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
 </div>

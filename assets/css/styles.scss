@@ -27,3 +27,16 @@
 .r-list-item:hover {
   background-color: rgba(0, 0, 0, 0.05)
 }
+
+.r-circle {
+  display: block;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  -moz-border-radius: 16px; /* or 50% */
+  border-radius: 16px; /* or 50% */
+  background-color: rgb(173, 65, 65);
+  color: white;
+  text-align: center;
+  font-size: 1em;
+}

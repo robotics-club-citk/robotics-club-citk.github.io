@@ -28,6 +28,12 @@ defaults:
       type: "members"
     values:
       layout: "member"
+  -
+    scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
 
 
 
@@ -37,6 +43,7 @@ collections:
     permalink: /members/:path/
   projects:
     output: true
+    permalink: /projects/:path/
 
 
 sass:

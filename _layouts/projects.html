@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<!--title & subtitle-->
+<div class="section">
+  <div class="container">
+    <h1 class="title">Projects</h1>
+    <h3 class="subtitle">Robotics Club CIT Kokrajhar</h3>
+  </div>
+</div>
+
+<!--project cards-->
+<div class="section">
+  <div class="container">
+
+    <div class="columns is-multiline">
+      {% for project in site.projects %}
+      <div class="column is-one-third-tablet is-one-quarter-desktop">
+        <div class="box">
+          <p class="has-text-weight-semibold is-capitalized">{{ project.title }}</p>
+          <p class="is-size-7 is-capitalized">{{ project.status }} <span class="icon"><i class="fa fa-check-circle"></i></span></p>
+          <hr style="margin: 4px 0px">
+          <p style="margin-bottom: 20px">{{ project.description }}</p>
+          <!-- member avatars -->
+          <div class="columns is-mobile is-centered is-variable is-1">
+          {% for member-username in project.member-usernames %}
+            <!-- to display a number if members > 4 -->
+            {% if forloop.index >= 4 and forloop.length > 4 %}
+              {% if forloop.last %}
+                <div class="column is-narrow">
+                  <span class="r-circle is-primary">+{{ forloop.length | minus: 3 }}</span>
+                </div>
+                {% break %}
+              {% else %}
+                {% continue %}
+              {% endif %}
+            {% endif %}
+            <!-- if project done by robotics club -->
+            {% if member-username == 'club' %}
+              <div class="column is-narrow">
+                <span class="tag is-rounded is-medium">
+                  <span class="icon"><i class="fa fa-users"></i></span>
+                  <span>Robotics Club Team</span>
+                </span>
+              </div>
+            {% else %}
+              {% assign member = site.members | where:'username',member-username | first %}
+              {% if member != null %}
+                <div class="column is-narrow">
+                  <figure class="image is-32x32">
+                    <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
+                  </figure>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </div>
+          <div class="has-text-centered">
+            <a class="button is-small is-rounded is-primary" href="{{ project.url }}">
+              <span>Project details</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{{ content }}

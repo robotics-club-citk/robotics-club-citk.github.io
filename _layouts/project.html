@@ -1,3 +1,49 @@
 ---
 layout: default
 ---
+
+<!--title & description-->
+<div class="section">
+    <div class="container">
+      <h1 class="title">{{ page.title }}</h1>
+      <h3 class="subtitle">{{ page.description }}</h3>
+    </div>
+  </div>
+  
+  <!--User Details-->
+  <section class="section">
+    <div class="container">
+      <h1 class="subtitle">Project members</h1>
+      <ul class="list">
+      {% for member-username in page.member-usernames %}
+        {% if member-username == 'club' %}
+          <li class="list-item r-hover">
+            <div>
+              <span class="icon"><i class="fa fa-users"></i></span>
+              <span class="has-text-weight-semibold">Robotics Club Team</span>
+            </div>
+          </li>
+        {% else %}
+          {% assign member = site.members | where:'username',member-username | first %}
+          {% if member != null %}
+            <li class="list-item r-hover">
+              <a href="{{ member.url }}" style="display:block">
+                <div class="columns is-mobile is-vcentered">
+                  <div class="column is-narrow">
+                    <figure class="image is-48x48">
+                      <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
+                    </figure>
+                  </div>
+                  <div class="column is-narrow">
+                    <p class="has-text-weight-semibold has-text-black">{{ member.name }}</p>
+                    <p class="is-size-7 has-text-black">{{ member.email }}</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+  </section>

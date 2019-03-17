@@ -4,70 +4,77 @@ layout: default
 
 <!--title & description-->
 <div class="section">
-    <div class="container">
-      <h1 class="title">{{ page.title }}</h1>
-      <p style="margin-bottom: 8px">
-        <span class="has-text-weight-semibold">Status :</span> 
-        {% if page.status == 'completed' %}
-        <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
-        {% else %}
-        <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
-        {% endif %}
-        {{ page.status | capitalize }}
+  <div class="container">
 
-        {% if page.date %}
-        <span class="icon has-text-danger"><i class="fa fa-clock"></i></span>
-        {{ page.date | date: '%b %d, %Y' }}
-        {% endif %}
-      </p>
-      <h3 class="subtitle">{{ page.description }}</h3>
-      <hr>
-      <h3 class="subtitle">Project members</h3>
-      <ul class="list">
+    <h1 class="title">{{ page.title }}</h1>
+    <p style="margin-bottom: 8px">
+      <span class="has-text-weight-semibold">Status :</span> 
+      {% if page.status == 'completed' %}
+      <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
+      {% else %}
+      <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
+      {% endif %}
+      {{ page.status | capitalize }}
+
+      {% if page.date %}
+      <span class="icon has-text-danger"><i class="fa fa-clock"></i></span>
+      {{ page.date | date: '%b %d, %Y' }}
+      {% endif %}
+    </p>
+    <h3 class="subtitle">{{ page.description }}</h3>
+
+    <hr>
+
+    {% if page.member-usernames == 'club' %}
+    <p>
+      <span class="subtitle">Project done by : </span>
+      <span class="icon has-text-link"><i class="fa fa-users"></i></span>
+      <span>Robotics Club Team</span>
+    </p>
+    {% else %}
+    <h3 class="subtitle">Project members</h3>
+    <div class="columns">
       {% for member-username in page.member-usernames %}
-        {% if member-username == 'club' %}
-          <li class="list-item r-hover">
-            <div>
-              <span class="icon"><i class="fa fa-users"></i></span>
-              <span class="has-text-weight-semibold">Robotics Club Team</span>
+      {% assign member = site.members | where:'username',member-username | first %}
+      {% if member != null %}
+      <div class="column is-narrow">
+        <a href="{{ member.url }}" class="box">
+          <div class="columns is-mobile is-vcentered">
+            <div class="column is-narrow">
+              <figure class="image is-48x48">
+                <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
+              </figure>
             </div>
-          </li>
-        {% else %}
-          {% assign member = site.members | where:'username',member-username | first %}
-          {% if member != null %}
-            <li class="list-item r-hover">
-              <a href="{{ member.url }}" style="display:block">
-                <div class="columns is-mobile is-vcentered">
-                  <div class="column is-narrow">
-                    <figure class="image is-48x48">
-                      <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
-                    </figure>
-                  </div>
-                  <div class="column is-narrow">
-                    <p class="has-text-weight-semibold has-text-black">{{ member.name }}</p>
-                    <p class="is-size-7 has-text-black">{{ member.email }}</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-      </ul>
-    </div>
-  </div>
-  
-  <!--User Details-->
-  {% if page.youtube-video %}
-  <section class="section">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-two-thirds">
-          <div class="r-video-container">
-            {{ page.youtube-video }}
+            <div class="column is-narrow">
+              <p class="has-text-weight-semibold has-text-black">{{ member.name }}</p>
+              <p class="is-size-7 has-text-black">{{ member.email }}</p>
+            </div>
           </div>
+        </a>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <hr>
+    
+  </div>
+</div>
+  
+<!--Youtube Video-->
+{% if page.youtube-video %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <div class="r-video-container">
+          {{ page.youtube-video }}
         </div>
       </div>
     </div>
-  </section>
-  {% endif %}
+  </div>
+</section>
+{% endif %}
+
+{{ content }}

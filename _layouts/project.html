@@ -27,12 +27,12 @@ layout: default
 
     {% if page.member-usernames == 'club' %}
     <p>
-      <span class="subtitle">Project done by : </span>
+      <span class="has-text-weight-semibold">Project done by : </span>
       <span class="icon has-text-link"><i class="fa fa-users"></i></span>
       <span>Robotics Club Team</span>
     </p>
     {% else %}
-    <h3 class="subtitle">Project members</h3>
+    <h3 class="has-text-weight-semibold" style="margin-bottom:16px">Project members</h3>
     <div class="columns">
       {% for member-username in page.member-usernames %}
       {% assign member = site.members | where:'username',member-username | first %}
@@ -68,7 +68,7 @@ layout: default
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-two-thirds">
-        <div class="r-video-container">
+        <div class="r-video-container box">
           {{ page.youtube-video }}
         </div>
       </div>

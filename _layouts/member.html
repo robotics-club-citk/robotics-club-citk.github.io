@@ -29,6 +29,7 @@ layout: default
             </p>
             <p>{{ page.email }}</p>
           </li>
+          {% if page.phone %}
           <li class="list-item r-list-item">
             <p>
               <span class="icon has-text-success">
@@ -38,6 +39,8 @@ layout: default
             </p>
             <p>{{ page.phone }}</p>
           </li>
+          {% endif %}
+          {% if page.roll %}
           <li class="list-item r-list-item">
             <p>
               <span class="icon has-text-link">
@@ -47,6 +50,8 @@ layout: default
             </p>
             <p>{{ page.roll }}</p>
           </li>
+          {% endif %}
+          {% if page.education or page.branch %}
           <li class="list-item r-list-item">
             <p>
               <span class="icon has-text-primary">
@@ -56,6 +61,7 @@ layout: default
             </p>
             <p>{{ page.education }}, {{ page.branch }}</p>
           </li>
+          {% endif %}
         </ul>
       </div>
 

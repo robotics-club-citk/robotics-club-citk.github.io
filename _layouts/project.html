@@ -58,8 +58,16 @@ layout: default
   </div>
   
   <!--User Details-->
+  {% if page.youtube-video %}
   <section class="section">
     <div class="container">
-      
+      <div class="columns is-centered">
+        <div class="column is-two-thirds">
+          <div class="r-video-container">
+            {{ page.youtube-video }}
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+  {% endif %}

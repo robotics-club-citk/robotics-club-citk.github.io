@@ -6,14 +6,23 @@ layout: default
 <div class="section">
     <div class="container">
       <h1 class="title">{{ page.title }}</h1>
+      <p style="margin-bottom: 8px">
+        <span class="has-text-weight-semibold">Status :</span> 
+        {% if page.status == 'completed' %}
+        <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
+        {% else %}
+        <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
+        {% endif %}
+        {{ page.status | capitalize }}
+
+        {% if page.date %}
+        <span class="icon has-text-danger"><i class="fa fa-clock"></i></span>
+        {{ page.date | date: '%b %d, %Y' }}
+        {% endif %}
+      </p>
       <h3 class="subtitle">{{ page.description }}</h3>
-    </div>
-  </div>
-  
-  <!--User Details-->
-  <section class="section">
-    <div class="container">
-      <h1 class="subtitle">Project members</h1>
+      <hr>
+      <h3 class="subtitle">Project members</h3>
       <ul class="list">
       {% for member-username in page.member-usernames %}
         {% if member-username == 'club' %}
@@ -45,5 +54,12 @@ layout: default
         {% endif %}
       {% endfor %}
       </ul>
+    </div>
+  </div>
+  
+  <!--User Details-->
+  <section class="section">
+    <div class="container">
+      
     </div>
   </section>

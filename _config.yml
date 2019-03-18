@@ -34,6 +34,12 @@ defaults:
       type: "projects"
     values:
       layout: "project"
+  -
+    scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
 
 
 
@@ -44,6 +50,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  events:
+    output: true
+    permalink: /events/:path/
 
 
 sass:

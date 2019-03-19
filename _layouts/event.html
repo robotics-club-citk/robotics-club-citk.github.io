@@ -13,55 +13,72 @@ layout: default
 <!--event Details-->
 <section class="section">
   <div class="container">
-    <h1 class="subtitle">Event Details</h1>
-    <ul class="list">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <ul class="list">
 
-      <li class="list-item r-hover">
-        <div class="columns is-mobile is-vcentered">
-          <div class="column is-narrow">
-            <span class="icon has-text-danger is-medium">
-              <i class="fa fa-calendar"></i>
-            </span>
-          </div>
-          <div class="column is-narrow">
-            <p class="is-size-7 is-capitalized">Start Date</p>
-            <p class="has-text-weight-semibold">{{ page.start-date | date: '%A, %b %d, %Y' }}</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="list-item r-hover">
-        <div class="columns is-mobile is-vcentered">
-          <div class="column is-narrow">
-            <span class="icon has-text-link is-medium">
-              <i class="fa fa-clock"></i>
-            </span>
-          </div>
-          <div class="column is-narrow">
-            <p class="is-size-7 is-capitalized">Start time</p>
-            <p class="has-text-weight-semibold">{{ page.start-date | date: '%I : %M %p' }}</p>
-          </div>
-        </div>
-      </li>
-
-      <li class="list-item r-hover">
-        <div class="columns is-mobile is-vcentered">
-          <div class="column is-narrow">
-            <span class="icon has-text-success is-medium">
-              <i class="fa fa-map-marker-alt"></i>
-            </span>
-          </div>
-          <div class="column is-narrow">
-            <p class="is-size-7 is-capitalized">Venue</p>
-            <p class="has-text-weight-semibold">{{ page.place }}</p>
-          </div>
-        </div>
-      </li>
-
-    </ul>
+          <li class="list-item r-hover">
+            <div class="columns is-mobile is-vcentered">
+              <div class="column is-narrow">
+                <span class="icon has-text-danger is-medium">
+                  <i class="fa fa-calendar"></i>
+                </span>
+              </div>
+              <div class="column is-narrow">
+                <p class="is-size-7 is-capitalized">Start Date</p>
+                <p class="has-text-weight-semibold">{{ page.start-date | date: '%A, %b %d, %Y' }}</p>
+              </div>
+            </div>
+          </li>
+    
+          <li class="list-item r-hover">
+            <div class="columns is-mobile is-vcentered">
+              <div class="column is-narrow">
+                <span class="icon has-text-link is-medium">
+                  <i class="fa fa-clock"></i>
+                </span>
+              </div>
+              <div class="column is-narrow">
+                <p class="is-size-7 is-capitalized">Start time</p>
+                <p class="has-text-weight-semibold">{{ page.start-date | date: '%I : %M %p' }}</p>
+              </div>
+            </div>
+          </li>
+    
+          <li class="list-item r-hover">
+            <div class="columns is-mobile is-vcentered">
+              <div class="column is-narrow">
+                <span class="icon has-text-success is-medium">
+                  <i class="fa fa-map-marker-alt"></i>
+                </span>
+              </div>
+              <div class="column is-narrow">
+                <p class="is-size-7 is-capitalized">Venue</p>
+                <p class="has-text-weight-semibold">{{ page.place }}</p>
+              </div>
+            </div>
+          </li>
+    
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
+<!--Youtube Video-->
+{% if page.youtube-video %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <div class="r-video-container box">
+          {{ page.youtube-video }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
 
 
 

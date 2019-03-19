@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<!--title & subtitle-->
+<div class="section">
+  <div class="container">
+    <h1 class="title">Events</h1>
+    <h3 class="subtitle">Robotics Club CIT Kokrajhar</h3>
+  </div>
+</div>
+
+
+<!-- timeline -->
+
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <div class="timeline">
+          {% assign sorted-events = site.events | sort:'start-date' | reverse %}
+          {% for event in sorted-events %}
+          <div class="timeline-item is-block">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="heading">
+                <span>{{ event.start-date | date: ' %b %d, %Y' }}</span>
+              </p>
+              <div class="columns">
+                <div class="column">
+                  <div class="box">
+                    <p class="has-text-weight-semibold">{{ event.title }}</p>
+                    <p>{{ event.place }}</p>
+                    <p>{{ event.start-date | date: ' %I:%M %p' }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}  
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

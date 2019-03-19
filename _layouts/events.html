@@ -26,15 +26,13 @@ layout: default
               <p class="heading">
                 <span>{{ event.start-date | date: ' %b %d, %Y' }}</span>
               </p>
-              <div class="columns">
-                <div class="column">
-                  <div class="box">
-                    <p class="has-text-weight-semibold">{{ event.title }}</p>
-                    <p>{{ event.place }}</p>
-                    <p>{{ event.start-date | date: ' %I:%M %p' }}</p>
-                  </div>
-                </div>
-              </div>
+              
+              <a class="box" href="{{ event.url }}">
+                <p class="has-text-weight-semibold">{{ event.title }}</p>
+                <p>{{ event.place }}</p>
+                <p>{{ event.start-date | date: ' %I:%M %p' }}</p>
+              </a>
+              
             </div>
           </div>
           {% endfor %}  

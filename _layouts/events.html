@@ -10,9 +10,7 @@ layout: default
   </div>
 </div>
 
-
 <!-- timeline -->
-
 <div class="section">
   <div class="container">
     <div class="columns is-centered">
@@ -24,21 +22,29 @@ layout: default
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <p class="heading">
-                <span>{{ event.start-date | date: ' %b %d, %Y' }}</span>
+                <span>{{ event.start-date | date: '%b %d, %Y' }}</span>
               </p>
-              
+
               <a class="box" href="{{ event.url }}">
                 <p class="has-text-weight-semibold">{{ event.title }}</p>
                 <p>{{ event.place }}</p>
                 <p>{{ event.start-date | date: ' %I:%M %p' }}</p>
               </a>
-              
+
             </div>
           </div>
-          {% endfor %}  
+          {% endfor %}
         </div>
       </div>
     </div>
-    
   </div>
 </div>
+
+<script src="{{ site.baseurl }}/assets/js/date-utility.js"></script>
+<script>
+  document.querySelectorAll('.heading').forEach(function (node) {
+    var eventDate = dates.convert(node.firstElementChild.innerHTML);
+    if(dates.compare(eventDate, new Date()) >= 0)
+      node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
+  });
+</script>

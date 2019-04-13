@@ -2,4 +2,43 @@
 layout: default
 ---
 
-Contact Us
+<div class="section">
+  <div class="container">
+    <h1 class="title">Contact Us</h1>
+    <h3 class="subtitle">Feel free to contact us anytime if you have any query</h3>
+    <span class="icon has-text-danger"><i class="fa fa-envelope"></i></span>
+    <span class="has-text-weight-semibold">Official Email : </span>
+    <span class="has-text-weight-semibold">roboticsclub@cit.ac.in</span>
+
+    <hr>
+
+    <h1 class="subtitle">You can also talk directly to one of our core members</h1>
+
+    {% assign members = site.members | where:'type','core' | sort: 'priority' | reverse %}
+    <div class="columns is-multiline">
+      {% for member in members %}
+      {% if member.username == 'dristantanirola' or member.username == 'siranjibhaloi' or member.username == 'rajdeepbaruah'%}
+      <div class="column is-one-quarter-tablet is-one-quarter-desktop">
+        <div class="box has-text-centered">
+          <figure class="r-avatar image is-96x96">
+            <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-capitalized">{{ member.name }}</p>
+          <p class="r-role"><span class="tag is-rounded is-primary">{{ member.role }}</span></p>
+          <hr>
+          <p class="is-size-7">
+            <span class="icon has-text-success"><i class="fa fa-phone"></i></span>
+            <span class="has-text-weight-semibold">{{ member.phone }}</span>
+          </p>
+          <p class="is-size-7">
+            <span class="icon has-text-danger"><i class="fa fa-envelope"></i></span>
+            <span class="has-text-weight-semibold">{{ member.email }}</span>
+          </p>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>

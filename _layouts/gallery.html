@@ -22,7 +22,8 @@
               <figure class="image is-square" data-index="{{forloop.index0}}" data-size="{{image.size}}"
                 data-caption="{{image.caption}}">
                 <a href="{{ site.baseurl }}/{{ image.path }}">
-                  <img src="{{ site.baseurl }}/{{ image.path }}" alt="Image" class="r-fit-cover">
+                  <img src="{{ site.baseurl }}/{{ image.path }}" alt="Image" class="r-fit-cover"
+                    title="{{image.caption}}">
                 </a>
               </figure>
             </div>

@@ -8,7 +8,7 @@ layout: default
 
     <h1 class="title">{{ page.title }}</h1>
     <p style="margin-bottom: 8px">
-      <span class="has-text-weight-semibold">Status :</span> 
+      <span class="has-text-weight-semibold">Status :</span>
       {% if page.status == 'completed' %}
       <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
       {% else %}
@@ -42,7 +42,8 @@ layout: default
           <div class="columns is-mobile is-vcentered">
             <div class="column is-narrow">
               <figure class="image is-48x48">
-                <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
+                <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}"
+                  title="{{ member.name }}">
               </figure>
             </div>
             <div class="column is-narrow">
@@ -58,14 +59,17 @@ layout: default
     {% endif %}
 
     <hr>
-    
-  </div>
-</div>
-  
-<!--Youtube Video-->
-{% if page.youtube-video %}
-<section class="section">
-  <div class="container">
+
+    <!-- Image gallery -->
+    {% if page.images %}
+    <h3 class="has-text-weight-semibold" style="margin-bottom:16px">Project images</h3>
+    {% include gallery.html %}
+    <hr>
+    {% endif %}
+
+    <!--Youtube Video-->
+    {% if page.youtube-video %}
+    <h3 class="has-text-weight-semibold" style="margin-bottom:16px">Project video</h3>
     <div class="columns is-centered">
       <div class="column is-two-thirds">
         <div class="r-video-container box">
@@ -73,8 +77,10 @@ layout: default
         </div>
       </div>
     </div>
+    <hr>
+    {% endif %}
+
   </div>
-</section>
-{% endif %}
+</div>
 
 {{ content }}

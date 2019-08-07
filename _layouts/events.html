@@ -25,7 +25,8 @@ layout: default
                 <span>{{ event.start-date | date: '%b %d, %Y' }}</span>
               </p>
 
-              <a class="box" href="{{ event.url }}">
+              <a class="box" href="{{ event.url }}"
+                style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
                 <p class="has-text-weight-semibold">{{ event.title }}</p>
                 <p>{{ event.place }}</p>
                 <p>{{ event.start-date | date: ' %I:%M %p' }}</p>
@@ -44,7 +45,7 @@ layout: default
 <script>
   document.querySelectorAll('.heading').forEach(function (node) {
     var eventDate = dates.convert(node.firstElementChild.innerHTML);
-    if(dates.compare(eventDate, new Date()) >= 0)
+    if (dates.compare(eventDate, new Date()) >= 0)
       node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
   });
 </script>

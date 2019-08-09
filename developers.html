@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<div class="section">
+  <div class="container">
+    <h1 class="title">Website development & management</h1>
+    <h1 class="subtitle">This page contains information about this site and how to manage it. The inner workings
+      of the site is explained here so that anyone having basic knowledge of web development can easily manage the site.
+    </h1>
+
+    <hr>
+
+    <h3 class="has-text-weight-semibold" style="margin-bottom:16px">Website Developer :</h3>
+    {% assign members = site.members%}
+    <div class="columns is-multiline">
+      {% for member in members %}
+      {% if member.username == 'anupamsaikia' %}
+      <div class="column is-half-tablet is-one-third-desktop">
+        <div class="box has-text-centered">
+          <figure class="r-avatar image is-96x96">
+            <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-capitalized">{{ member.name }}</p>
+          <p class="is-size-7">
+            <span class="icon has-text-danger"><i class="fa fa-envelope"></i></span>
+            <span class="has-text-weight-semibold">{{ member.email }}</span>
+          </p>
+          <hr>
+          <div>
+            <a class="r-profile-btn button is-small is-rounded is-primary" href="{{ member.url }}">
+              <span class="icon is-small">
+                <i class="fa fa-user"></i>
+              </span>
+              <span>View Profile</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <p>
+      <h3 class="has-text-weight-semibold" style="margin-bottom:16px">Source code :</h3>
+      <a class="button" href="https://github.com/robotics-club-citk">
+        <span class="icon">
+          <i class="fab fa-github"></i>
+        </span>
+        <span>View source code on GitHub</span>
+      </a>
+    </p>
+
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="container">
+    <h3 class="has-text-weight-semibold" style="margin-bottom:16px">About the site :</h3>
+    <p>This site is developed using <a href="https://jekyllrb.com">Jekyll</a> (a popular static site generator) and
+      hosted in GitHub as <a href="https://pages.github.com/">GitHub Pages</a>. We are using GitHub as a hosting
+      platform because it's very easy to develop the site using GitHub and it's free 😉</p>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 ---
 username: souravdeka
 name: Sourav Deka
-email: aaa@gmail.com
+email: s.deka@cit.ac.in
 phone: 6000014417
 avatar: souravdeka.jpg
 role: Faculty Incharge

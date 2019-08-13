@@ -9,92 +9,96 @@ layout: default
 
         <h1 class="title">Robotics Club registration form</h1>
         <h3 class="subtitle">Fill the form below to register yourself as a member</h3>
-        
+
         <span class="">A membership fee of </span>
         <span class="icon is-small"><i class="fa fa-rupee-sign"></i></span>
         <span class="has-text-weight-semibold">150</span>
         <span class="">need to be paid offline</span>
 
         <hr>
-
-        <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Your full name">
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control has-icons-left">
-            <input class="input" type="email" placeholder="Valid email address">
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-          </div>
-        </div>
-
-        <div class="field is-expanded">
-          <label class="label">Phone</label>
-          <div class="field has-addons">
-            <p class="control">
-              <a class="button is-static">
-                +91
-              </a>
-            </p>
-            <p class="control is-expanded">
-              <input class="input" type="tel" placeholder="Your phone number">
-            </p>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Module</label>
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="module">
-              B.Tech
-            </label>
-            <label class="radio">
-              <input type="radio" name="module">
-              Diploma
-            </label>
-          </div>
-        </div>
+        <form action="" method="GET">
 
 
-        <div class="field">
-          <label class="label">Branch</label>
-          <div class="control">
-            <div class="select">
-              <select>
-                <option>CSE</option>
-                <option>ECE</option>
-                <option>IE</option>
-                <option>IT</option>
-                <option>FET</option>
-                <option>CE</option>
-              </select>
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input name="fullname" required autocomplete="name" class="input" type="text" placeholder="Your full name">
             </div>
           </div>
-        </div>
 
-        <br>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left">
+              <input name="email" required autocomplete="email" class="input" type="email" placeholder="Valid email address">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
+          </div>
 
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-link">Submit</button>
+          <div class="field is-expanded">
+            <label class="label">Phone</label>
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-static">
+                  +91
+                </a>
+              </p>
+              <p class="control is-expanded">
+                <input name="phone" required autocomplete="tel-national" class="input" type="tel" placeholder="Your phone number">
+              </p>
+            </div>
           </div>
-          <div class="control">
-            <button class="button">Cancel</button>
+
+          <div class="field">
+            <label class="label">Module</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" required name="module" value="degree">
+                Degree
+              </label>
+              <label class="radio">
+                <input type="radio" required name="module" value="diploma">
+                Diploma
+              </label>
+            </div>
           </div>
-        </div>
+
+          <div class="field">
+            <label class="label">Branch</label>
+            <div class="control">
+              <div class="select">
+                <select name="branch" required>
+                  <option value="cse">CSE</option>
+                  <option value="ece">ECE</option>
+                  <option value="ie">IE</option>
+                  <option value="it">IT</option>
+                  <option value="fet">FET</option>
+                  <option value="ce">CE</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button type="submit" class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+              <button type="reset" class="button">Cancel</button>
+            </div>
+          </div>
+
+        </form>
 
         <hr>
 
         <p class="is-size-7 has-text-weight-semibold">Special perks for members :</p>
         <p class="is-size-7">Members can issue various components from the club inventory to make their own projects</p>
-        <p class="is-size-7">Members can collaborate with other members of the club & get funds from the institution for large projects</p>
+        <p class="is-size-7">Members can collaborate with other members of the club & get funds from the institution for
+          large projects</p>
         <p class="is-size-7">Members can attend special seminars held in the club to learn about robotics</p>
         <p class="is-size-7">Members can participate in various robotics competitions on behalf of robotics club</p>
 

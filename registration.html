@@ -16,20 +16,22 @@ layout: default
         <span class="">need to be paid offline</span>
 
         <hr>
-        <form action="" method="GET">
+        <form name="submit-to-google-sheet">
 
 
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input name="fullname" required autocomplete="name" class="input" type="text" placeholder="Your full name">
+              <input name="fullname" required autocomplete="name" class="input" type="text"
+                placeholder="Your full name">
             </div>
           </div>
 
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left">
-              <input name="email" required autocomplete="email" class="input" type="email" placeholder="Valid email address">
+              <input name="email" required autocomplete="email" class="input" type="email"
+                placeholder="Valid email address">
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -45,7 +47,8 @@ layout: default
                 </a>
               </p>
               <p class="control is-expanded">
-                <input name="phone" required autocomplete="tel-national" class="input" type="tel" placeholder="Your phone number">
+                <input name="phone" required autocomplete="tel-national" class="input" type="tel"
+                  placeholder="Your phone number">
               </p>
             </div>
           </div>
@@ -92,6 +95,18 @@ layout: default
           </div>
 
         </form>
+
+        <script>
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbyomuPQfuZCJp0wboVIX06spDnbEmvTHOeQH9fQGxi2vdc6uwZt/exec'
+          const form = document.forms['submit-to-google-sheet']
+
+          form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+              .then(response => console.log('Success!', response))
+              .catch(error => console.error('Error!', error.message))
+          })
+        </script>
 
         <hr>
 

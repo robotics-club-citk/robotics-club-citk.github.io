@@ -1,3 +1,15 @@
 ---
 layout: default
 ---
+
+<script>
+  var scriptURL = "https://script.google.com/macros/s/AKfycbxuCL0ukrnWJXfOJF52WWgOPns2ri_mcZgV4N5-hELWjAJ2gE8e/exec"
+  fetch(scriptURL, { method: 'GET', redirect: 'follow' })
+    .then(response => {
+      response.text().then(data => {
+        console.log(data)
+      })
+    })
+    .catch(error => console.error('Error!', error.message))
+
+</script>

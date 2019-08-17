@@ -2,14 +2,55 @@
 layout: default
 ---
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="vue-app">
+  <p>((message))</p>
+  <ul>
+    <li v-for="item in components">
+      ((item.component_name)) ((item.total_quantity))
+    </li>
+  </ul>
+</div>
+
 <script>
   var scriptURL = "https://script.google.com/macros/s/AKfycbxuCL0ukrnWJXfOJF52WWgOPns2ri_mcZgV4N5-hELWjAJ2gE8e/exec"
-  fetch(scriptURL, { method: 'GET', redirect: 'follow' })
-    .then(response => {
-      response.text().then(data => {
-        console.log(data)
-      })
-    })
-    .catch(error => console.error('Error!', error.message))
+  var app = new Vue({
+    delimiters: ["((", "))"],
+    el: '#vue-app',
+    data: {
+      loading: false,
+      components: [],
+      message: '',
+    },
+    methods: {
+      getData() {
+        this.loading = true
+        this.components = []
 
+        fetch(scriptURL, { method: 'GET', redirect: 'follow' })
+          .then(response => {
+            response.text().then(data => {
+              console.log(data)
+              this.components = JSON.parse(data)
+              if (this.components.length == 0) {
+                this.message = "No project available"
+              }
+              this.loading = false
+            })
+          })
+          .catch(error => {
+            console.error('Error getting component data!', error.message)
+            this.loading = false
+          })
+      }
+
+
+
+    },
+
+    mounted() {
+      this.getData()
+    }
+  })
 </script>

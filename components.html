@@ -2,18 +2,55 @@
 layout: default
 ---
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-<div id="vue-app">
-  <p>((message))</p>
-  <ul>
-    <li v-for="item in components">
-      ((item.component_name)) ((item.total_quantity))
-    </li>
-  </ul>
+<div class="section" id="vue-app">
+  <div class="container">
+    <h1 class="title">Components</h1>
+    <h3 class="subtitle">List of components in Robotics Club CIT Kokrajhar</h3>
+
+    <hr>
+
+    <h3 class="subtitle">Sensors</h3>
+    <div class="columns is-multiline">
+
+      <div v-for="item in components" class="column is-half-tablet is-one-third-desktop">
+
+        <a href="#" class="box">
+          <p class=" is-capitalized">(( item.name ))</p>
+          <br>
+          <div class="columns is-vcentered is-mobile">
+            <div class="column is-narrow">
+              <figure class="image is-96x96">
+                <img class="" :src="item.image_url">
+              </figure>
+            </div>
+            <div class="column is-narrow">
+              <p class="is-size-7 has-text-weight-semibold">Total quantity : (( item.total ))</p>
+              <p class="is-size-7 has-text-weight-semibold has-text-success">In stock : ((item.available))</p>
+              <p class="is-size-7 has-text-weight-semibold has-text-link">Issued : ((item.issued))</p>
+              <p class="is-size-7 has-text-weight-semibold has-text-grey">Damaged/lost : ((item.damaged_lost))</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+
+  </div>
 </div>
 
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
 <script>
+
   var scriptURL = "https://script.google.com/macros/s/AKfycbxuCL0ukrnWJXfOJF52WWgOPns2ri_mcZgV4N5-hELWjAJ2gE8e/exec"
   var app = new Vue({
     delimiters: ["((", "))"],
@@ -53,4 +90,5 @@ layout: default
       this.getData()
     }
   })
+
 </script>

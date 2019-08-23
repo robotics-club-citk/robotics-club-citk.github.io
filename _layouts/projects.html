@@ -17,62 +17,59 @@ layout: default
     <div class="columns is-multiline">
       {% for project in site.projects %}
       <div class="column is-one-third-tablet is-one-quarter-desktop">
-        <div class="box">
+        <a class="box r-border" href="{{ project.url }}">
 
-          <p class="has-text-weight-semibold is-capitalized">{{ project.title }}</p>
+          <p class="has-text-weight-semibold r-ellipsis">{{ project.title }}</p>
           <p class="is-size-7 is-capitalized">
-            {{ project.status }}
             {% if project.status == 'completed' %}
             <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
             {% else %}
             <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
             {% endif %}
+            {{ project.status }}
           </p>
-          <hr style="margin: 4px 0px">
-          <p class="r-ellipsis" style="margin-bottom: 20px" title="{{ project.description }}">{{ project.description }}</p>
-          
+          <p class="is-size-7 is-capitalized">
+            <span class="icon has-text-danger"><i class="fa fa-clock"></i></span>
+            {{ project.date | date: '%b %d, %Y' }}
+          </p>
+          <br>
           <!-- member avatars -->
           <div class="columns is-mobile is-centered is-variable is-1">
-          {% for member-username in project.member-usernames %}
+            {% for member-username in project.member-usernames %}
             <!-- to display a number if members > 4 -->
             {% if forloop.index >= 4 and forloop.length > 4 %}
-              {% if forloop.last %}
-                <div class="column is-narrow">
-                  <span class="r-circle is-primary">+{{ forloop.length | minus: 3 }}</span>
-                </div>
-                {% break %}
-              {% else %}
-                {% continue %}
-              {% endif %}
+            {% if forloop.last %}
+            <div class="column is-narrow">
+              <span class="r-circle is-primary">+{{ forloop.length | minus: 3 }}</span>
+            </div>
+            {% break %}
+            {% else %}
+            {% continue %}
+            {% endif %}
             {% endif %}
             <!-- if project done by robotics club -->
             {% if member-username == 'club' %}
-              <div class="column is-narrow">
-                <span class="tag is-rounded is-medium">
-                  <span class="icon"><i class="fa fa-users"></i></span>
-                  <span class="is-size-7 has-text-weight-semibold">Robotics Club Team</span>
-                </span>
-              </div>
+            <div class="column is-narrow">
+              <span class="tag is-rounded is-medium">
+                <span class="icon"><i class="fa fa-users"></i></span>
+                <span class="is-size-7 has-text-weight-semibold">Robotics Club Team</span>
+              </span>
+            </div>
             {% else %}
-              {% assign member = site.members | where:'username',member-username | first %}
-              {% if member != null %}
-                <div class="column is-narrow">
-                  <figure class="image is-32x32">
-                    <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
-                  </figure>
-                </div>
-              {% endif %}
+            {% assign member = site.members | where:'username',member-username | first %}
+            {% if member != null %}
+            <div class="column is-narrow">
+              <figure class="image is-32x32">
+                <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}"
+                  title="{{ member.name }}">
+              </figure>
+            </div>
             {% endif %}
-          {% endfor %}
+            {% endif %}
+            {% endfor %}
           </div>
 
-          <div class="has-text-centered">
-            <a class="button is-small is-rounded is-primary" href="{{ project.url }}">
-              <span>Project details</span>
-            </a>
-          </div>
-
-        </div>
+        </a>
       </div>
       {% endfor %}
     </div>

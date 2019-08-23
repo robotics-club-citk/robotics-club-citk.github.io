@@ -19,7 +19,7 @@ layout: default
       <div v-for="item in components" class="column is-half-tablet is-one-third-desktop">
 
         <a href="#" class="box r-border">
-          <p class="r-ellipsis">(( item.name ))</p>
+          <p class="r-ellipsis has-text-weight-semibold">(( item.name ))</p>
           <br>
           <div class="columns is-vcentered is-mobile">
             <div class="column is-narrow">
@@ -59,6 +59,7 @@ layout: default
     data: {
       loading: false,
       components: [],
+      types: [],
       message: '',
     },
     watch: {
@@ -81,10 +82,14 @@ layout: default
         fetch(scriptURL, { method: 'GET', redirect: 'follow' })
           .then(response => {
             response.text().then(data => {
-              console.log(data)
-              this.components = JSON.parse(data)
+              var comps = JSON.parse(data)
+              var compTypes = [...new Set(comps.map(x => x.type))];
+
+              this.components = comps
+              this.types = compTypes
+
               if (this.components.length == 0) {
-                this.message = "No project available"
+                this.message = "No components available"
               }
               this.loading = false
             })

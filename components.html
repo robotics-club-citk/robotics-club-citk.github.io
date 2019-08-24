@@ -3,21 +3,25 @@ layout: default
 ---
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-<div class="pageloader" id="pageloader"><span class="title">Loading components</span></div>
+<div class="section" id="vue-app" v-cloak>
 
-
-<div class="section" id="vue-app">
+  <div :class="{ pageloader: true, 'is-active': loading }" id="pageloader">
+    <span class="title">Loading components</span>
+  </div>
   <div class="container">
     <h1 class="title">Components</h1>
     <h3 class="subtitle">List of components in Robotics Club CIT Kokrajhar</h3>
-
     <hr>
 
-    <h3 class="subtitle">Sensors</h3>
+    <div class="tabs is-centered is-boxed">
+      <ul>
+        <li v-for="type in types" :class="{ 'is-active': type == selectedType, 'is-capitalized':true }"
+          @click="selectedType = type" :key="type"><a>((type))</a></li>
+      </ul>
+    </div>
     <div class="columns is-multiline">
-
-      <div v-for="item in components" class="column is-half-tablet is-one-third-desktop">
-
+      <div v-for="item in components" v-show="item.type == selectedType" :key="item.id"
+        class="column is-half-tablet is-one-third-desktop">
         <a href="#" class="box r-border">
           <p class="r-ellipsis has-text-weight-semibold">(( item.name ))</p>
           <br>
@@ -35,21 +39,14 @@ layout: default
             </div>
           </div>
         </a>
-
       </div>
     </div>
-
 
   </div>
 </div>
 
 
-
-
-
-
-
-
+<!-- Vue -->
 <script>
 
   var scriptURL = "https://script.google.com/macros/s/AKfycbxuCL0ukrnWJXfOJF52WWgOPns2ri_mcZgV4N5-hELWjAJ2gE8e/exec"
@@ -60,24 +57,13 @@ layout: default
       loading: false,
       components: [],
       types: [],
+      selectedType: '',
       message: '',
     },
-    watch: {
-      loading: function (val) {
-        var pageloader = document.getElementById('pageloader');
-        if (pageloader && val) {
-          pageloader.classList.add('is-active');
-        }
-        else if (pageloader && !val) {
-          pageloader.classList.remove('is-active');
-        }
-      }
 
-    },
     methods: {
       getData() {
         this.loading = true
-        this.components = []
 
         fetch(scriptURL, { method: 'GET', redirect: 'follow' })
           .then(response => {
@@ -87,6 +73,7 @@ layout: default
 
               this.components = comps
               this.types = compTypes
+              this.selectedType = this.types[0]
 
               if (this.components.length == 0) {
                 this.message = "No components available"
@@ -98,15 +85,12 @@ layout: default
             console.error('Error getting component data!', error.message)
             this.loading = false
           })
-      }
-
-
-
+      },
     },
 
     mounted() {
       this.getData()
-    }
+    },
   })
 
 </script>

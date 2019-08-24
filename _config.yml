@@ -22,26 +22,21 @@ markdown: kramdown
 permalink: pretty
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "members"
     values:
       layout: "member"
-  -
-    scope:
+  - scope:
       path: ""
       type: "projects"
     values:
       layout: "project"
-  -
-    scope:
+  - scope:
       path: ""
       type: "events"
     values:
       layout: "event"
-
-
 
 collections:
   members:
@@ -54,11 +49,9 @@ collections:
     output: true
     permalink: /events/:path/
 
-
 sass:
   sass_dir: _sass
   style: compressed
-
 
 exclude:
   - README.md

@@ -7,7 +7,7 @@ avatar: bhaskarmedhi.jpg
 role: Member
 type: member
 roll: Gau-c-18/024
-branch: ECE
+branch: CSE
 education: B.Tech
 priority: 5
 ---

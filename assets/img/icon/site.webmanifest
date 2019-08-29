@@ -1,0 +1,20 @@
+{
+    "name": "Robotics Club",
+    "short_name": "Robotics Club",
+    "icons": [
+        {
+            "src": "/assets/img/icon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/icon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#3f4351",
+    "background_color": "#3f4351",
+    "start_url": "https://roboticsclub.cit.ac.in",
+    "display": "standalone"
+}

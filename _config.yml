@@ -20,6 +20,8 @@ github_username: robotics-club-citk
 # Build settings
 markdown: kramdown
 permalink: pretty
+plugins:
+  - jekyll-sitemap
 
 defaults:
   - scope:

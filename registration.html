@@ -2,36 +2,68 @@
 layout: default
 ---
 
+<div class="modal" id="modal">
+  <div class="modal-background" onclick="closeModal()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title"></p>
+      <button class="delete" aria-label="close" onclick="closeModal()"></button>
+    </header>
+    <section class="modal-card-body">
+      <h1>Successfully submitted</h1>
+      <p>
+        Thanks for joining the club. You can check your email for more
+        information
+      </p>
+    </section>
+    <footer class="modal-card-foot">
+      <a class="button is-success" href="{{ site.baseurl }}/">Home</a>
+      <button class="button" onclick="closeModal()">Close</button>
+    </footer>
+  </div>
+</div>
+
 <div class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-two-thirds-tablet is-half-desktop">
-
         <h1 class="title">Robotics Club registration form</h1>
-        <h3 class="subtitle">Fill the form below to register yourself as a member</h3>
+        <h3 class="subtitle">
+          Fill the form below to register yourself as a member
+        </h3>
 
         <span class="">A membership fee of </span>
         <span class="icon is-small"><i class="fa fa-rupee-sign"></i></span>
         <span class="has-text-weight-semibold">150</span>
         <span class="">need to be paid offline</span>
 
-        <hr>
+        <hr />
         <form name="submit-to-google-sheet">
-
-
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input name="fullname" required autocomplete="name" class="input" type="text"
-                placeholder="Your full name">
+              <input
+                name="fullname"
+                required
+                autocomplete="name"
+                class="input"
+                type="text"
+                placeholder="Your full name"
+              />
             </div>
           </div>
 
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left">
-              <input name="email" required autocomplete="email" class="input" type="email"
-                placeholder="Valid email address">
+              <input
+                name="email"
+                required
+                autocomplete="email"
+                class="input"
+                type="email"
+                placeholder="Valid email address"
+              />
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -47,8 +79,14 @@ layout: default
                 </a>
               </p>
               <p class="control is-expanded">
-                <input name="phone" required autocomplete="tel-national" class="input" type="tel"
-                  placeholder="Your phone number">
+                <input
+                  name="phone"
+                  required
+                  autocomplete="tel-national"
+                  class="input"
+                  type="tel"
+                  placeholder="Your phone number"
+                />
               </p>
             </div>
           </div>
@@ -57,11 +95,11 @@ layout: default
             <label class="label">Module</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" required name="module" value="degree">
+                <input type="radio" required name="module" value="degree" />
                 Degree
               </label>
               <label class="radio">
-                <input type="radio" required name="module" value="diploma">
+                <input type="radio" required name="module" value="diploma" />
                 Diploma
               </label>
             </div>
@@ -72,52 +110,101 @@ layout: default
             <div class="control">
               <div class="select">
                 <select name="branch" required>
-                  <option value="cse">CSE</option>
-                  <option value="ece">ECE</option>
-                  <option value="ie">IE</option>
-                  <option value="it">IT</option>
-                  <option value="fet">FET</option>
-                  <option value="ce">CE</option>
+                  <option value="cse">CSE (Degree)</option>
+                  <option value="ece">ECE (Degree)</option>
+                  <option value="ie">IE (Degree)</option>
+                  <option value="it">IT (Degree)</option>
+                  <option value="fet">FET (Degree)</option>
+                  <option value="ce">CE (Degree)</option>
+                  <option value="des">Design (Degree)</option>
                 </select>
               </div>
             </div>
           </div>
 
-          <br>
+          <div class="field">
+            <label class="label">Previous experience</label>
+            <div class="control">
+              <input
+                name="experience"
+                class="input"
+                type="text"
+                placeholder="Previous experiences if any"
+              />
+            </div>
+          </div>
+
+          <br />
 
           <div class="field is-grouped">
             <div class="control">
-              <button type="submit" class="button is-link">Submit</button>
+              <button type="submit" class="button is-link" id="submitButton">
+                Submit
+              </button>
             </div>
             <div class="control">
               <button type="reset" class="button">Cancel</button>
             </div>
           </div>
-
         </form>
 
-        <script>
-          const scriptURL = 'https://script.google.com/macros/s/AKfycbyomuPQfuZCJp0wboVIX06spDnbEmvTHOeQH9fQGxi2vdc6uwZt/exec'
-          const form = document.forms['submit-to-google-sheet']
+        <hr />
 
-          form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-              .then(response => console.log('Success!', response))
-              .catch(error => console.error('Error!', error.message))
-          })
-        </script>
-
-        <hr>
-
-        <p class="is-size-7 has-text-weight-semibold">Special perks for members :</p>
-        <p class="is-size-7">Members can issue various components from the club inventory to make their own projects</p>
-        <p class="is-size-7">Members can collaborate with other members of the club & get funds from the institution for
-          large projects</p>
-        <p class="is-size-7">Members can attend special seminars held in the club to learn about robotics</p>
-        <p class="is-size-7">Members can participate in various robotics competitions on behalf of robotics club</p>
-
+        <p class="is-size-7 has-text-weight-semibold">
+          Special perks for members :
+        </p>
+        <p class="is-size-7">
+          Members can issue various components from the club inventory to make
+          their own projects
+        </p>
+        <p class="is-size-7">
+          Members can collaborate with other members of the club & get funds
+          from the institution for large projects
+        </p>
+        <p class="is-size-7">
+          Members can attend special seminars held in the club to learn about
+          robotics
+        </p>
+        <p class="is-size-7">
+          Members can participate in various robotics competitions on behalf of
+          robotics club
+        </p>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbyomuPQfuZCJp0wboVIX06spDnbEmvTHOeQH9fQGxi2vdc6uwZt/exec";
+
+  document.forms["submit-to-google-sheet"].addEventListener("submit", e => {
+    e.preventDefault();
+    document.getElementById("submitButton").classList.add("is-loading");
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(document.forms["submit-to-google-sheet"])
+    })
+      .then(response => {
+        {
+          if (response.ok) {
+            document.getElementById("modal").classList.add("is-active");
+            document
+              .getElementById("submitButton")
+              .classList.remove("is-loading");
+            document.forms["submit-to-google-sheet"].reset();
+          }
+        }
+      })
+      .catch(error => {
+        document.getElementById("submitButton").classList.add("is-loading");
+        alert(
+          "Error occurred while submitting the form. Please contact developer and report this issue"
+        );
+      });
+  });
+
+  function closeModal() {
+    var modal = document.getElementById("modal").classList.remove("is-active");
+  }
+</script>

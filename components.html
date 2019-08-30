@@ -1,34 +1,86 @@
 ---
 layout: default
 ---
+
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 
 <div class="section" id="vue-app" v-cloak>
-
   <div :class="{ pageloader: true, 'is-active': loading }" id="pageloader">
     <span class="title">Loading components</span>
   </div>
+
+  <div :class="{ modal: true, 'is-active': dialog }">
+    <div class="modal-background" @click="dialog = false"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Issue this component</p>
+        <button
+          class="delete"
+          aria-label="close"
+          @click="dialog = false"
+        ></button>
+      </header>
+      <section class="modal-card-body">
+        <p class="r-ellipsis has-text-weight-semibold">
+          (( selectedItem.name ))
+        </p>
+        <br />
+        <div class="columns is-vcentered is-mobile">
+          <div class="column is-narrow">
+            <figure class="image is-96x96 r-hide-overflow">
+              <img :src="selectedItem.image_url" />
+            </figure>
+          </div>
+          <div class="column is-narrow">
+            <p class="">Item in stock : ((selectedItem.available))</p>
+            <p>You are about to issue this item</p>
+            <br /><br />
+            <p class="is-size-7">Note:</p>
+            <p class="is-size-7">Only members can issue this component</p>
+            <p class="is-size-7">
+              Please join the club first if you are not a member
+            </p>
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <a class="button is-success" :href="mailLink">Send request</a>
+        <button class="button" @click="dialog = false">Cancel</button>
+      </footer>
+    </div>
+  </div>
+
   <div class="container">
     <h1 class="title">Components</h1>
     <h3 class="subtitle">List of components in Robotics Club CIT Kokrajhar</h3>
-    <hr>
+    <hr />
 
     <div class="tabs is-centered is-boxed">
       <ul>
-        <li v-for="type in types" :class="{ 'is-active': type == selectedType, 'is-capitalized':true }"
-          @click="selectedType = type" :key="type"><a>((type))</a></li>
+        <li
+          v-for="type in types"
+          :class="{ 'is-active': type == selectedType, 'is-capitalized':true }"
+          @click="selectedType = type"
+          :key="type"
+        >
+          <a>((type))</a>
+        </li>
       </ul>
     </div>
     <div class="columns is-multiline">
-      <div v-for="item in components" v-show="item.type == selectedType" :key="item.id"
-        class="column is-half-tablet is-one-third-desktop">
-        <a href="#" class="box r-border">
+      <div
+        v-for="item in components"
+        v-show="item.type == selectedType"
+        :key="item.id"
+        class="column is-half-tablet is-one-third-desktop"
+      >
+        <a class="box r-border" @click="showDialog(item)">
           <p class="r-ellipsis has-text-weight-semibold">(( item.name ))</p>
-          <br>
+          <br />
           <div class="columns is-vcentered is-mobile">
             <div class="column is-narrow">
-              <figure class="image is-96x96">
-                <img class="" :src="item.image_url">
+              <figure class="image is-96x96 r-hide-overflow">
+                <img :src="item.image_url" />
               </figure>
             </div>
             <div class="column is-narrow">
@@ -41,56 +93,78 @@ layout: default
         </a>
       </div>
     </div>
-
   </div>
 </div>
 
-
 <!-- Vue -->
 <script>
-
-  var scriptURL = "https://script.google.com/macros/s/AKfycbxuCL0ukrnWJXfOJF52WWgOPns2ri_mcZgV4N5-hELWjAJ2gE8e/exec"
+  var scriptURL =
+    "https://script.google.com/macros/s/AKfycbxuCL0ukrnWJXfOJF52WWgOPns2ri_mcZgV4N5-hELWjAJ2gE8e/exec";
   var app = new Vue({
     delimiters: ["((", "))"],
-    el: '#vue-app',
+    el: "#vue-app",
     data: {
       loading: false,
+      dialog: false,
       components: [],
       types: [],
-      selectedType: '',
-      message: '',
+      selectedType: "",
+      selectedItem: {},
+      message: "",
+      mailBody: ""
+    },
+
+    computed: {
+      mailLink: function() {
+        return (
+          "mailto:roboticsclub@cit.ac.in?subject=" +
+          encodeURI("Component issue request") +
+          "&body=" +
+          encodeURI(this.mailBody)
+        );
+      }
     },
 
     methods: {
       getData() {
-        this.loading = true
+        this.loading = true;
 
-        fetch(scriptURL, { method: 'GET', redirect: 'follow' })
+        fetch(scriptURL, { method: "GET", redirect: "follow" })
           .then(response => {
             response.text().then(data => {
-              var comps = JSON.parse(data)
+              var comps = JSON.parse(data);
               var compTypes = [...new Set(comps.map(x => x.type))];
 
-              this.components = comps
-              this.types = compTypes
-              this.selectedType = this.types[0]
+              this.components = comps;
+              this.types = compTypes;
+              this.selectedType = this.types[0];
 
               if (this.components.length == 0) {
-                this.message = "No components available"
+                this.message = "No components available";
               }
-              this.loading = false
-            })
+              this.loading = false;
+            });
           })
           .catch(error => {
-            console.error('Error getting component data!', error.message)
-            this.loading = false
-          })
+            console.error("Error getting component data!", error.message);
+            this.loading = false;
+          });
       },
+
+      showDialog(item) {
+        this.selectedItem = item;
+        this.dialog = true;
+        this.mailBody =
+          "I want to issue the following item\n\nItem id: " +
+          item.id +
+          "\nItem name: " +
+          item.name +
+          "\nQuantity: 1";
+      }
     },
 
     mounted() {
-      this.getData()
-    },
-  })
-
+      this.getData();
+    }
+  });
 </script>

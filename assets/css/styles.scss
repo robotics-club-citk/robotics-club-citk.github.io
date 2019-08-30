@@ -56,6 +56,10 @@
   border-left: 6px solid #ffddb0;
 }
 
+.r-hide-overflow {
+  overflow: hidden;
+}
+
 .r-video-container {
   position: relative;
   padding-bottom: 56.25%; /*16:9*/

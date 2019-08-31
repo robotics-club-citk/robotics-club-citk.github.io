@@ -6,98 +6,129 @@ description: Provide feedback to Robotics Club CIT Kokrajhar
 
 <div class="section">
   <div class="container">
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">From</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <p class="control is-expanded has-icons-left">
-            <input class="input" type="text" placeholder="Name" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
-          </p>
+    <form name="feedback-form">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">From</label>
         </div>
-        <div class="field">
-          <p class="control is-expanded has-icons-left">
-            <input class="input" type="email" placeholder="Email" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="field is-horizontal">
-      <div class="field-label"></div>
-      <div class="field-body">
-        <div class="field is-expanded">
-          <div class="field has-addons">
-            <p class="control">
-              <a class="button is-static">
-                +91
-              </a>
-            </p>
-            <p class="control is-expanded">
-              <input class="input" type="tel" placeholder="Your phone number" />
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded has-icons-left">
+              <input
+                required
+                class="input"
+                type="text"
+                autocomplete="name"
+                placeholder="Name"
+                name="fullname"
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
             </p>
           </div>
-          <p class="help">10 digit phone number</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="field is-horizontal">
-      <div class="field-label">
-        <label class="label">Are you a member?</label>
-      </div>
-      <div class="field-body">
-        <div class="field is-narrow">
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="member" />
-              Yes
-            </label>
-            <label class="radio">
-              <input type="radio" name="member" />
-              No
-            </label>
+          <div class="field">
+            <p class="control is-expanded has-icons-left">
+              <input
+                class="input"
+                type="email"
+                autocomplete="email"
+                placeholder="Email"
+                name="email"
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Feedback</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <textarea
-              class="textarea"
-              placeholder="Your message here"
-            ></textarea>
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <label class="label">Are you a member?</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="member" value="yes" />
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="member" value="no" />
+                No
+              </label>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="field is-horizontal">
-      <div class="field-label">
-        <!-- Left empty for spacing -->
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <button class="button is-primary">
-              Send Feedback
-            </button>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Feedback</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea
+                name="feedback"
+                class="textarea"
+                placeholder="Your feedback here"
+              ></textarea>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+          <div class="field is-grouped">
+            <div class="control">
+              <button type="submit" class="button is-link" id="submitButton">
+                Submit
+              </button>
+            </div>
+            <div class="control">
+              <button type="reset" class="button">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
+
+<script>
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbyM3brpYswfolk4xtKprDk4iFMDBNjnkIlxvnfcJ3NzQhZ7zNh8/exec";
+
+  document.forms["feedback-form"].addEventListener("submit", e => {
+    e.preventDefault();
+    document.getElementById("submitButton").classList.add("is-loading");
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(document.forms["feedback-form"])
+    })
+      .then(response => {
+        {
+          if (response.ok) {
+            document
+              .getElementById("submitButton")
+              .classList.remove("is-loading");
+            alert("Thank you for your feedback.");
+            document.forms["feedback-form"].reset();
+          }
+        }
+      })
+      .catch(error => {
+        document.getElementById("submitButton").classList.remove("is-loading");
+        alert(
+          "Error occurred while submitting the form. Please contact developer and report this issue"
+        );
+      });
+  });
+</script>

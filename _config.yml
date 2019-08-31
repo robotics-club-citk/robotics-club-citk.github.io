@@ -22,6 +22,9 @@ social:
     - https://github.com/robotics-club-citk
     - https://youtube.com/channel/UCo7ZitSCcgWNEsQVVzBx41g
 
+webmaster_verifications:
+  google: on-j_4e55BohxmVyp9ynfpEmDeFeNfO9QEv5n4O_lSQ
+
 # Build settings
 markdown: kramdown
 permalink: pretty

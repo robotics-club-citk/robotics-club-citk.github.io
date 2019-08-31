@@ -15,8 +15,12 @@ description: An excellent platform for students to unleash their creativity and 
 baseurl: ""
 url: "https://roboticsclub.cit.ac.in"
 logo: "/assets/img/icon/main-logo.png"
-
-github_username: robotics-club-citk
+social:
+  name: Robotics Club CIT Kokrajhar
+  links:
+    - https://www.facebook.com/themoderngeeks
+    - https://github.com/robotics-club-citk
+    - https://youtube.com/channel/UCo7ZitSCcgWNEsQVVzBx41g
 
 # Build settings
 markdown: kramdown

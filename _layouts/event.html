@@ -30,7 +30,7 @@ layout: default
               </div>
             </div>
           </li>
-    
+
           <li class="list-item r-hover">
             <div class="columns is-mobile is-vcentered">
               <div class="column is-narrow">
@@ -44,7 +44,7 @@ layout: default
               </div>
             </div>
           </li>
-    
+
           <li class="list-item r-hover">
             <div class="columns is-mobile is-vcentered">
               <div class="column is-narrow">
@@ -58,17 +58,23 @@ layout: default
               </div>
             </div>
           </li>
-    
+
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<!--Youtube Video-->
-{% if page.youtube-video %}
-<section class="section">
-  <div class="container">
+    <hr>
+
+    <!-- Image gallery -->
+    {% if page.images %}
+    <h3 class="has-text-weight-semibold is-size-5" style="margin-bottom:16px">Event images</h3>
+    {% include gallery.html %}
+    <hr>
+    {% endif %}
+
+    <!--Youtube Video-->
+    {% if page.youtube-video %}
+    <h3 class="has-text-weight-semibold is-size-5" style="margin-bottom:16px">Event video</h3>
     <div class="columns is-centered">
       <div class="column is-two-thirds">
         <div class="r-video-container box">
@@ -76,10 +82,10 @@ layout: default
         </div>
       </div>
     </div>
+    <hr>
+    {% endif %}
+
   </div>
 </section>
-{% endif %}
-
-
 
 {{ content }}

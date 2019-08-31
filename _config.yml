@@ -35,6 +35,7 @@ defaults:
       type: "members"
     values:
       layout: "member"
+      description: "Member of Robotics club CIT Kokrajhar"
   - scope:
       path: ""
       type: "projects"

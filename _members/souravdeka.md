@@ -4,7 +4,7 @@ name: Sourav Deka
 title: Sourav Deka
 email: s.deka@cit.ac.in
 phone: 6000014417
-avatar: souravdeka.jpg
+avatar: member.jpg
 role: Faculty Incharge
 type: faculty
 priority: 50

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Components
-description: Find all the components available in Robotics Club CIT Kokrajhar
+description: List of all the components available in Robotics Club CIT Kokrajhar
 ---
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
@@ -16,11 +16,7 @@ description: Find all the components available in Robotics Club CIT Kokrajhar
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Issue this component</p>
-        <button
-          class="delete"
-          aria-label="close"
-          @click="dialog = false"
-        ></button>
+        <button class="delete" aria-label="close" @click="dialog = false"></button>
       </header>
       <section class="modal-card-body">
         <p class="r-ellipsis has-text-weight-semibold">
@@ -34,9 +30,10 @@ description: Find all the components available in Robotics Club CIT Kokrajhar
             </figure>
           </div>
           <div class="column is-narrow">
-            <p class="">Item in stock : ((selectedItem.available))</p>
-            <p>You are about to issue this item</p>
-            <br /><br />
+            <p class="has-text-link">Item in stock : ((selectedItem.available))</p>
+            <p>You are about to issue this item.</p>
+            <p>Please fill your details in the next step.</p>
+            <br />
             <p class="is-size-7">Note:</p>
             <p class="is-size-7">Only members can issue this component</p>
             <p class="is-size-7">
@@ -55,27 +52,27 @@ description: Find all the components available in Robotics Club CIT Kokrajhar
   <div class="container">
     <h1 class="title">Components</h1>
     <h3 class="subtitle">List of components in Robotics Club CIT Kokrajhar</h3>
+    <p class="has-text-weight-semibold">Instructions:</p>
+    <ul class="is-size-7 has-text-weight-semibold">
+      <li>You can click on any component to issue it.</li>
+      <li>You can issue any number of components.</li>
+      <li>The component must be returned to the club within 30 days.</li>
+      <li>Only members are allowed to issue components from club</li>
+    </ul>
+
     <hr />
 
     <div class="tabs is-centered is-boxed">
       <ul>
-        <li
-          v-for="type in types"
-          :class="{ 'is-active': type == selectedType, 'is-capitalized':true }"
-          @click="selectedType = type"
-          :key="type"
-        >
+        <li v-for="type in types" :class="{ 'is-active': type == selectedType, 'is-capitalized':true }"
+          @click="selectedType = type" :key="type">
           <a>((type))</a>
         </li>
       </ul>
     </div>
     <div class="columns is-multiline">
-      <div
-        v-for="item in components"
-        v-show="item.type == selectedType"
-        :key="item.id"
-        class="column is-half-tablet is-one-third-desktop"
-      >
+      <div v-for="item in components" v-show="item.type == selectedType" :key="item.id"
+        class="column is-half-tablet is-one-third-desktop">
         <a class="box r-border" @click="showDialog(item)">
           <p class="r-ellipsis has-text-weight-semibold">(( item.name ))</p>
           <br />
@@ -117,12 +114,12 @@ description: Find all the components available in Robotics Club CIT Kokrajhar
     },
 
     computed: {
-      mailLink: function() {
+      mailLink: function () {
         return (
           "mailto:roboticsclub@cit.ac.in?subject=" +
           encodeURI("Component issue request") +
           "&body=" +
-          encodeURI(this.mailBody)
+          encodeURIComponent(this.mailBody)
         );
       }
     },
@@ -157,11 +154,11 @@ description: Find all the components available in Robotics Club CIT Kokrajhar
         this.selectedItem = item;
         this.dialog = true;
         this.mailBody =
-          "I want to issue the following item\n\nItem id: " +
+          "I want to issue the following component\n\nComponent id: " +
           item.id +
-          "\nItem name: " +
+          "\nComponent name: " +
           item.name +
-          "\nQuantity: 1";
+          "\nQuantity: 1\n\nName: \nRollnum: \nPhone: \n";
       }
     },
 

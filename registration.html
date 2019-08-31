@@ -12,10 +12,14 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
       <button class="delete" aria-label="close" onclick="closeModal()"></button>
     </header>
     <section class="modal-card-body">
-      <h1>Successfully submitted</h1>
+      <h1 class="is-size-5">Registration complete</h1>
+      <p class="has-text-danger has-text-weight-semibold">
+        A warm welcome to you to join us!
+      </p>
+      <br />
       <p>
-        Thanks for joining the club. You can check your email for more
-        information
+        We hope you’ll make the best use of your skills and knowledge and make
+        sure something great is achieved!
       </p>
     </section>
     <footer class="modal-card-foot">
@@ -197,16 +201,16 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
       .then(response => {
         {
           if (response.ok) {
-            document.getElementById("modal").classList.add("is-active");
             document
               .getElementById("submitButton")
               .classList.remove("is-loading");
+            document.getElementById("modal").classList.add("is-active");
             document.forms["submit-to-google-sheet"].reset();
           }
         }
       })
       .catch(error => {
-        document.getElementById("submitButton").classList.add("is-loading");
+        document.getElementById("submitButton").classList.remove("is-loading");
         alert(
           "Error occurred while submitting the form. Please contact developer and report this issue"
         );

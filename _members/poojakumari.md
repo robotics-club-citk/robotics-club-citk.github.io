@@ -1,6 +1,7 @@
 ---
 username: poojakumari
 name: Pooja Kumari
+title: Pooja Kumari
 email: b17ece020@cit.ac.in
 phone: 7005185679
 avatar: poojakumari.jpg

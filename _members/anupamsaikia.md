@@ -1,6 +1,7 @@
 ---
 username: anupamsaikia
 name: Anupam Saikia
+title: Anupam Saikia
 email: ianupamsaikia@gmail.com
 phone: 8638293900
 avatar: anupamsaikia.jpg

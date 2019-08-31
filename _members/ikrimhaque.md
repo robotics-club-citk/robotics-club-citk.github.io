@@ -1,6 +1,7 @@
 ---
 username: ikrimhaque
 name: Ikrim Haque
+title: Ikrim Haque
 email: cit17et14@cit.ac.in
 phone: 8638285489
 avatar: ikrimhaque.jpg

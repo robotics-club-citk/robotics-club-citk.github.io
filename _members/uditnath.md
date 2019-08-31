@@ -1,6 +1,7 @@
 ---
 username: uditnath
 name: Udit Nath
+title: Udit Nath
 email: uditjeet@gmail.com
 phone: 7564884220
 avatar: uditnath.jpg

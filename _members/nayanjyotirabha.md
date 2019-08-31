@@ -1,6 +1,7 @@
 ---
 username: nayanjyotirabha
 name: Nayanjyoti Rabha
+title: Nayanjyoti Rabha
 email: b17cs050@cit.ac.in
 phone: 7002722865
 avatar: nayanjyotirabha.jpg

@@ -1,6 +1,7 @@
 ---
 username: arifwahab
 name: Arif Wahab
+title: Arif Wahab
 email: arif.whb@rediffmail.com
 phone: 7002905720
 avatar: arifwahab.jpg

@@ -1,6 +1,7 @@
 ---
 username: bhaskarmedhi
 name: Bhaskar Jyoti Medhi
+title: Bhaskar Jyoti Medhi
 email: iambhaskar21@gmail.com
 phone: 8011908526
 avatar: bhaskarmedhi.jpg

@@ -1,6 +1,7 @@
 ---
 username: mridupawanbaruah
 name: Mridu Pawan Baruah
+title: Mridu Pawan Baruah
 email: mridupawanbaruah811@gmail.com
 phone: 7564884220
 avatar: mridupawanbaruah.jpg

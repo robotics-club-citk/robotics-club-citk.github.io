@@ -1,6 +1,7 @@
 ---
 username: ranjitkurmi
 name: Ranjit Kurmi
+title: Ranjit Kurmi
 email: ranjitkurmi17@gmail.com
 phone: 9101111316
 avatar: ranjitkurmi.jpg

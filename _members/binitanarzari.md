@@ -1,6 +1,7 @@
 ---
 username: binitanarzari
 name: Binita Narzari
+title: Binita Narzari
 email: narzaribinita@gmail.com
 phone: 7896208748
 avatar: binitanarzari.jpg

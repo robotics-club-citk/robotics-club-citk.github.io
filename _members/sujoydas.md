@@ -1,6 +1,7 @@
 ---
 username: sujoydas
 name: Sujoy Das
+title: Sujoy Das
 email: b17cs054@cit.ac.in
 phone: 7578863883
 avatar: sujoydas.jpg

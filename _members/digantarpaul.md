@@ -1,6 +1,7 @@
 ---
 username: digantarpaul
 name: Digantar Paul
+title: Digantar Paul
 email: b17ece041@cit.ac.in
 phone: 8876044554
 avatar: digantarpaul.jpg

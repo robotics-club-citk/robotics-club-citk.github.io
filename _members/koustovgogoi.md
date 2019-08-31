@@ -1,6 +1,7 @@
 ---
 username: koustovgogoi
 name: Koustov Gogoi
+title: Koustov Gogoi
 email: b17ie108@cit.ac.in
 phone: 9132223982
 avatar: koustovgogoi.jpg

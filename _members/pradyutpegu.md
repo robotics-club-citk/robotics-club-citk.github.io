@@ -1,6 +1,7 @@
 ---
 username: pradyutpegu
 name: Pradyut Pegu
+title: Pradyut Pegu
 email: pradyutpegu61@gmail.com
 phone: 9101286057
 avatar: pradyutpegu.jpg

@@ -1,6 +1,7 @@
 ---
 username: dipendeka
 name: Dipen Deka
+title: Dipen Deka
 email: d.deka@cit.ac.in
 phone: 9207173176
 avatar: dipendeka.jpg

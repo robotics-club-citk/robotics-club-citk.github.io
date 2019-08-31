@@ -1,6 +1,7 @@
 ---
 username: rajdeepbaruah
 name: Rajdeep Baruah
+title: Rajdeep Baruah
 email: b17ece042@cit.ac.in
 phone: 8723875864
 avatar: rajdeepbaruah.jpg

@@ -1,6 +1,7 @@
 ---
 username: dristantanirola
 name: Dristanta Nirola
+title: Dristanta Nirola
 email: b15ec021@cit.ac.in
 phone: 7002379534
 avatar: dristantanirola.jpg

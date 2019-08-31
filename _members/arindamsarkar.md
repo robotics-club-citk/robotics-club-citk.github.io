@@ -1,6 +1,7 @@
 ---
 username: arindamsarkar
 name: Arindam Sarkar
+title: Arindam Sarkar
 email: bickyarindam@gmail.com
 phone: 9706362680
 avatar: arindamsarkar.jpg

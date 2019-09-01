@@ -5,8 +5,8 @@ title: Koustov Gogoi
 email: b17ie108@cit.ac.in
 phone: 9132223982
 avatar: koustovgogoi.jpg
-role: Event Manager
-type: core
+role: Member
+type: member
 roll: GAU-C-17/108
 branch: IE
 education: B.Tech

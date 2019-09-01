@@ -5,8 +5,8 @@ title: Gaurav Jyoti Dutta
 email: b17ece029@cit.ac.in
 phone: 9085586509
 avatar: gauravdutta.jpg
-role: Club Management
-type: core
+role: Member
+type: member
 roll: Gau-c-17/029
 branch: ECE
 education: B.Tech

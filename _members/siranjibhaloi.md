@@ -10,5 +10,5 @@ type: core
 roll: GAU-C-17/110
 branch: IE
 education: B.Tech
-priority: 10
+priority: 20
 ---

@@ -10,5 +10,5 @@ type: core
 roll: GAU-C-17/042
 branch: ECE
 education: B.Tech
-priority: 10
+priority: 17
 ---

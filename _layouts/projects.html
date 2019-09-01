@@ -60,8 +60,8 @@ layout: default
             {% if member != null %}
             <div class="column is-narrow">
               <figure class="image is-32x32">
-                <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}"
-                  title="{{ member.name }}">
+                <img alt="Image of {{ member.name }}" class="is-rounded"
+                  src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
               </figure>
             </div>
             {% endif %}

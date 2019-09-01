@@ -8,7 +8,8 @@ layout: default
     <div class="columns is-vcentered">
       <div class="column is-one-thirds has-text-centered">
         <figure class="image is-inline-block" style="max-width: 300px">
-          <img class="" src="{{ site.baseurl }}/assets/img/icon/main-logo.png">
+          <img alt="Logo of Robotics club CIT Kokrajhar" class=""
+            src="{{ site.baseurl }}/assets/img/icon/main-logo.png">
         </figure>
       </div>
       <div class="column is-two-thirds">
@@ -120,8 +121,8 @@ layout: default
             {% if member != null %}
             <div class="column is-narrow">
               <figure class="image is-32x32">
-                <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}"
-                  title="{{ member.name }}">
+                <img alt="Image of {{ member.name }}" class="is-rounded"
+                  src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
               </figure>
             </div>
             {% endif %}

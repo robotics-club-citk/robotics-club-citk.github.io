@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<!--title & links-->
+<div class="section">
+  <div class="container">
+    <h1 class="title">Alumni</h1>
+    <h3 class="subtitle">Robotics Club CIT Kokrajhar</h3>
+  </div>
+</div>
+
+<!--member cards-->
+<div class="section">
+  <div class="container">
+
+    {% assign members = site.members | where:'type','alumni' | sort: 'priority' | reverse %}
+    <div class="columns is-multiline">
+      {% for member in members %}
+      <div class="column is-one-quarter-tablet is-one-fifth-desktop">
+        <a class="box has-text-centered" href="{{ member.url }}">
+          <figure class="r-avatar image is-96x96">
+            <img class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-capitalized">{{ member.name }}</p>
+          <p class="r-role"><span class="tag is-rounded is-primary">{{ member.role }}</span></p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{{ content }}

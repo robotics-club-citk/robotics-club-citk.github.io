@@ -44,32 +44,38 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
         <span class="">need to be paid offline</span>
 
         <hr />
+
+        <p class="is-size-7 has-text-weight-semibold">
+          Special perks for members :
+        </p>
+        <ol class="is-size-7">
+          <li>Members can issue various components from the club inventory to make
+            their own projects</li>
+          <li>Members can collaborate with other members of the club & get funds
+            from the institution for large projects</li>
+          <li>Members can attend seminars and workshops held in the club to learn about
+            robotics</li>
+          <li>Members can participate in various robotics competitions on behalf of
+            robotics club</li>
+        </ol>
+
+
+        <hr />
+
         <form name="submit-to-google-sheet">
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input
-                name="fullname"
-                required
-                autocomplete="name"
-                class="input"
-                type="text"
-                placeholder="Your full name"
-              />
+              <input name="fullname" required autocomplete="name" class="input" type="text"
+                placeholder="Your full name" />
             </div>
           </div>
 
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left">
-              <input
-                name="email"
-                required
-                autocomplete="email"
-                class="input"
-                type="email"
-                placeholder="Valid email address"
-              />
+              <input name="email" required autocomplete="email" class="input" type="email"
+                placeholder="Valid email address" />
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -85,14 +91,8 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
                 </a>
               </p>
               <p class="control is-expanded">
-                <input
-                  name="phone"
-                  required
-                  autocomplete="tel-national"
-                  class="input"
-                  type="tel"
-                  placeholder="Your phone number"
-                />
+                <input name="phone" required autocomplete="tel-national" class="input" type="tel"
+                  placeholder="Your phone number" />
               </p>
             </div>
           </div>
@@ -136,14 +136,9 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
           </div>
 
           <div class="field">
-            <label class="label">Previous experience</label>
+            <label class="label">Any previous experiences on robotics</label>
             <div class="control">
-              <input
-                name="experience"
-                class="input"
-                type="text"
-                placeholder="Previous experiences if any"
-              />
+              <input name="experience" class="input" type="text" placeholder="Previous experiences if any" />
             </div>
           </div>
 
@@ -160,28 +155,10 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
             </div>
           </div>
         </form>
+        <br>
+        <br>
 
-        <hr />
 
-        <p class="is-size-7 has-text-weight-semibold">
-          Special perks for members :
-        </p>
-        <p class="is-size-7">
-          Members can issue various components from the club inventory to make
-          their own projects
-        </p>
-        <p class="is-size-7">
-          Members can collaborate with other members of the club & get funds
-          from the institution for large projects
-        </p>
-        <p class="is-size-7">
-          Members can attend special seminars held in the club to learn about
-          robotics
-        </p>
-        <p class="is-size-7">
-          Members can participate in various robotics competitions on behalf of
-          robotics club
-        </p>
       </div>
     </div>
   </div>

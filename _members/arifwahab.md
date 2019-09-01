@@ -5,8 +5,8 @@ title: Arif Wahab
 email: arif.whb@rediffmail.com
 phone: 7002905720
 avatar: arifwahab.jpg
-role: Member
-type: member
+role: Club Management
+type: core
 roll: Gau-c-18/093
 branch: IE
 education: B.Tech

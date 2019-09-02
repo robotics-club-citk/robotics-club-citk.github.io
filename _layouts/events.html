@@ -21,7 +21,7 @@ layout: default
           <div class="timeline-item is-block">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <p class="heading">
+              <p class="heading event-date">
                 <span>{{ event.start-date | date: '%b %d, %Y' }}</span>
               </p>
 
@@ -43,7 +43,7 @@ layout: default
 
 <script src="{{ site.baseurl }}/assets/js/date-utility.js"></script>
 <script>
-  document.querySelectorAll('.heading').forEach(function (node) {
+  document.querySelectorAll('.event-date').forEach(function (node) {
     var eventDate = dates.convert(node.firstElementChild.innerHTML);
     if (dates.compare(eventDate, new Date()) >= 0)
       node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');

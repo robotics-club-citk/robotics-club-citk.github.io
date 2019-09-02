@@ -37,17 +37,20 @@ defaults:
       path: ""
       type: "members"
     values:
+      sitemap: false
       layout: "member"
       description: "Member of Robotics club CIT Kokrajhar"
   - scope:
       path: ""
       type: "projects"
     values:
+      sitemap: false
       layout: "project"
   - scope:
       path: ""
       type: "events"
     values:
+      sitemap: false
       layout: "event"
 
 collections:

@@ -86,15 +86,24 @@ layout: default
           <p class="has-text-weight-semibold is-capitalized">
             {{ project.title }}
           </p>
-          <p class="is-size-7 is-capitalized">
-            {{ project.status }}
+          <p class="is-size-7">
             {% if project.status == 'completed' %}
             <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
             {% else %}
             <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
             {% endif %}
-          </p>
+            <span class="is-capitalized">{{ project.status }}</span>
 
+            {% if project.youtube-video %}
+            <span class="icon has-text-danger"><i class="fab fa-youtube"></i></span>
+            <span>Video available</span>
+            {% endif %}
+            {% if project.images %}
+            <span class="icon has-text-link"><i class="fas fa-images"></i></span>
+            <span>Images available</span>
+            {% endif %}
+          </p>
+          <br>
           <!-- member avatars -->
           <div class="columns is-mobile is-centered is-variable is-1">
             {% for member-username in project.member-usernames %}

@@ -27,6 +27,15 @@ layout: default
             <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
             {% endif %}
             {{ project.status }}
+
+            {% if project.youtube-video %}
+            <span class="icon has-text-danger"><i class="fab fa-youtube"></i></span>
+            Video
+            {% endif %}
+            {% if project.images %}
+            <span class="icon has-text-link"><i class="fas fa-images"></i></span>
+            Images
+            {% endif %}
           </p>
           <p class="is-size-7 is-capitalized">
             <span class="icon has-text-danger"><i class="fa fa-clock"></i></span>

@@ -27,6 +27,7 @@ webmaster_verifications:
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 permalink: pretty
 plugins:
   - jekyll-sitemap

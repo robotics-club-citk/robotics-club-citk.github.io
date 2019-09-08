@@ -3,7 +3,7 @@ username: mridupawanbaruah
 name: Mridu Pawan Baruah
 title: Mridu Pawan Baruah
 email: mridupawanbaruah811@gmail.com
-phone: 7564884220
+phone: 8011281366
 avatar: mridupawanbaruah.jpg
 role: Student Coordinator
 type: core

@@ -24,6 +24,10 @@
 <meta name="msapplication-config" content="/assets/img/icon/browserconfig.xml">
 <meta name="theme-color" content="#3f4351">
 
+{% if page.robots %}
+<meta name="robots" content="{{page.robots}}" />
+{% endif %}
+
 <link rel="stylesheet" type="text/css" media="screen" href="{{ site.baseurl }}/assets/css/main.css">
 <link rel="stylesheet" type="text/css" media="screen" href="{{ site.baseurl }}/assets/css/styles.css">
 <link href="{{ site.baseurl }}/assets/fontawesome/css/all.min.css" rel="stylesheet">

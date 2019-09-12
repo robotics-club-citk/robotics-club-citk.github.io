@@ -38,6 +38,7 @@ defaults:
       path: ""
       type: "members"
     values:
+      robots: noindex
       sitemap: false
       layout: "member"
       description: "Member of Robotics club CIT Kokrajhar"

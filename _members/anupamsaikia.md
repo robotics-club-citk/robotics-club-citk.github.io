@@ -2,8 +2,8 @@
 username: anupamsaikia
 name: Anupam Saikia
 title: Anupam Saikia
-email: ianupamsaikia@gmail.com
-phone: 8638293900
+email: b17cs064@cit.ac.in
+phone: ##########
 avatar: anupamsaikia.jpg
 role: Web Developer
 type: core

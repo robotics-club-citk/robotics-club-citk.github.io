@@ -3,7 +3,6 @@ username: anupamsaikia
 name: Anupam Saikia
 title: Anupam Saikia
 email: b17cs064@cit.ac.in
-phone: ##########
 avatar: anupamsaikia.jpg
 role: Web Developer
 type: core

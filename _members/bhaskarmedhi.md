@@ -10,5 +10,5 @@ type: core
 roll: Gau-c-18/024
 branch: CSE
 education: B.Tech
-priority: 8
+priority: 19
 ---

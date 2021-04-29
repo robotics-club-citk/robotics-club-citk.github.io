@@ -5,8 +5,8 @@ title: Pradyut Pegu
 email: pradyutpegu61@gmail.com
 phone: 9101286057
 avatar: pradyutpegu.jpg
-role: Member
-type: member
+role: Club Management
+type: core
 roll: Gau-c-18/084
 branch: CSE
 education: B.Tech

@@ -6,7 +6,7 @@ email: b17ie110@cit.ac.in
 phone: 7578898054
 avatar: siranjibhaloi.jpg
 role: Convenor
-type: core
+type: alumni
 roll: GAU-C-17/110
 branch: IE
 education: B.Tech

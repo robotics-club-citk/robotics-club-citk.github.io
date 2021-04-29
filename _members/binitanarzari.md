@@ -6,7 +6,7 @@ email: narzaribinita@gmail.com
 phone: 7896208748
 avatar: binitanarzari.jpg
 role: Chief Coordinator
-type: core
+type: alumni
 roll: GAU-C-17/291
 branch: CSE
 education: B.Tech

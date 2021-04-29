@@ -5,7 +5,7 @@ title: Udit Nath
 email: uditjeet@gmail.com
 phone: 7564884220
 avatar: uditnath.jpg
-role: Student Coordinator
+role: Chief Co-ordinator
 type: core
 roll: Gau-c-18/077
 branch: CSE

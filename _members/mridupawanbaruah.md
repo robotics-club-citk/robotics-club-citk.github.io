@@ -10,5 +10,5 @@ type: core
 roll: Gau-c-18/227
 branch: IT
 education: B.Tech
-priority: 5
+priority: 18
 ---

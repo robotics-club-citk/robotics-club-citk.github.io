@@ -5,7 +5,7 @@ title: Borish Nandon Sarmah
 email: borishnsarma@gmail.com
 phone: 8638353900
 avatar: borishnandonsarmah.jpg
-role: Student Coordinator
+role: Co-ordinator
 type: core
 roll: Gau-c-18/041
 branch: ECE

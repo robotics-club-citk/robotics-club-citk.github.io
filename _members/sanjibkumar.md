@@ -4,7 +4,7 @@ name: Sanjib Kumar Malakar
 title: Sanjib Kumar Malakar
 email: u19cse1027@cit.ac.in
 phone: 
-avatar: 
+avatar: sanjibmalakar.jpeg
 role: Member
 type: member
 roll: 201902021027

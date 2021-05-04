@@ -1,6 +1,6 @@
 ---
 username: sanjibkumar
-name: Sanjub Kumar Malakar
+name: Sanjib Kumar Malakar
 title: Sanjib Kumar Malakar
 email: u19cse1027@cit.ac.in
 phone: 

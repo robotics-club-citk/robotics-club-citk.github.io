@@ -14,7 +14,7 @@ layout: default
 <div class="section">
   <div class="container">
 
-    {% assign members = site.members | where:'type','alumni' | sort: 'priority' | reverse %}
+    {% assign members = site.members | where:'type','adviser' | sort: 'priority' | reverse %}
     <div class="columns is-multiline">
       {% for member in members %}
       <div class="column is-one-quarter-tablet is-one-fifth-desktop">

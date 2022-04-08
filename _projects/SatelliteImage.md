@@ -3,7 +3,7 @@ title: Satellite image reception
 description: Receiving satellite image from NOAA and Meteor M weather satellites
 date: 2019-03-23
 status: ongoing
-member-usernames: anupamsaikia
+member-usernames: ["anupamsaikia", "angadsingh"]
 images:
   - path: "assets/img/project-images/satImg0.jpg"
     size: 1412x533

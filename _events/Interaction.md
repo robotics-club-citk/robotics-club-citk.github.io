@@ -6,7 +6,7 @@ place: Robotics Club Workspace, CIT Kokrajhar
 images:
   - path: "assets/img/gallery/interactionA.jpg"
     size: 1366x911
-    caption: Orientation between members
+    caption: Interaction between members
   - path: "assets/img/gallery/interactionB.jpg"
     size: 1366x911
     caption: Interation between members

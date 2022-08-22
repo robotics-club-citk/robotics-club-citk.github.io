@@ -6,7 +6,7 @@ email: iambhaskar21@gmail.com
 phone: 8011908526
 avatar: bhaskarmedhi.jpg
 role: Chief Co-ordinator
-type: core
+type: advisor
 roll: Gau-c-18/024
 branch: CSE
 education: B.Tech

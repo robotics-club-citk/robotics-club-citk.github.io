@@ -4,7 +4,7 @@ name: Shamim shahinur rahman
 title: Shamim shahinur rahman
 email: U21ece1038@cit.ac.in
 phone: 9706553977
-avatar: shamim.jpg
+avatar: shamim.jpeg
 role: Member
 type: member
 roll: 202102031038

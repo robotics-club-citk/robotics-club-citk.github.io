@@ -3,6 +3,7 @@ username: innocent
 name: Innocent Mochahari
 title: Innocent Mochahari
 email: u20cse1017@cit.ac.in
+phone: 9101474958
 avatar: innocent.jpg
 role: Web Developer
 type: core

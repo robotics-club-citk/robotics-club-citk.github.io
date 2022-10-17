@@ -4,5 +4,5 @@ description: Drone (Unmanned Aerial Vehicle) is an electronic device which is re
 date: 2022-10-17
 status: completed
 member-usernames: ['nabajyoti']
-youtube-video: <iframe width="853" height="480" src="https://www.youtube.com/watch?v=8lzzmgZGuZw&ab_channel=ROBOTICSCITK" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+youtube-video: <iframe width="560" height="315" src="https://www.youtube.com/embed/XvMdL1PncEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ---

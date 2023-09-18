@@ -2,13 +2,13 @@
 username: shamim
 name: Shamim shahinur rahman
 title: Shamim shahinur rahman
-email: U21ece1038@cit.ac.in
+email: U21ce3082@cit.ac.in
 phone: 9706553977
 avatar: shamim.jpeg
 role: Member
 type: member
 roll: 202102031038
-branch: ECE
+branch: CE
 education: B.Tech
-priority: 7
+priority: 1
 ---

@@ -10,17 +10,17 @@ layout: default
     <div class="top-links field is-grouped">
       <p class="control">
         <a class="button is-primary" href="#faculty">
-          Faculty
+          FACULTY
         </a>
       </p>
       <p class="control">
         <a class="button is-link" href="#core-members">
-          Core Members
+          CONVENORS
         </a>
       </p>
       <p class="control">
         <a class="button is-danger" href="#members">
-          Members
+          CO-ORDINATOR
         </a>
       </p>
     </div>
@@ -31,7 +31,7 @@ layout: default
 <div class="section">
   <div class="container">
 
-    {% assign members = site.members | where:'type','faculty' | sort: 'priority' | reverse %}
+    {% assign members = site.members | where:'type','FACULTY' | sort: 'priority' | reverse %}
     <h1 class="title" id="faculty">Faculty</h1>
     <div class="columns is-multiline">
       {% for member in members %}
@@ -50,8 +50,8 @@ layout: default
 
     <hr>
 
-    {% assign members = site.members | where:'type','core' | sort: 'priority' | reverse %}
-    <h1 class="title" id="core-members">Core Members</h1>
+    {% assign members = site.members | where:'type','CONVENOR' | sort: 'priority' | reverse %}
+    <h1 class="title" id="core-members">CONVENORS</h1>
     <div class="columns is-multiline">
       {% for member in members %}
       <div class="column is-one-quarter-tablet is-one-fifth-desktop">
@@ -69,8 +69,8 @@ layout: default
 
     <hr>
 
-    {% assign members = site.members | where:'type','member' | sort: 'priority' | reverse %}
-    <h1 class="title" id="members">Members</h1>
+    {% assign members = site.members | where:'type','COORDINATOR' | sort: 'priority' | reverse %}
+    <h1 class="title" id="members">COORDINATOR</h1>
     <div class="columns is-multiline">
       {% for member in members %}
       <div class="column is-one-quarter-tablet is-one-fifth-desktop">

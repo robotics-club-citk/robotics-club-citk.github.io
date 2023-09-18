@@ -23,6 +23,11 @@ layout: default
           COORDINATOR
         </a>
       </p>
+      <p class="control">
+        <a class="button is-danger" href="#members">
+          MEMBERS
+        </a>
+      </p>
     </div>
   </div>
 </div>
@@ -88,7 +93,7 @@ layout: default
     <hr>
 
     {% assign members = site.members | where:'type','member' | sort: 'priority' | reverse %}
-    <h1 class="title" id="members">Members</h1>
+    <h1 class="title" id="members">MEMBERS</h1>
     <div class="columns is-multiline">
       {% for member in members %}
       <div class="column is-one-quarter-tablet is-one-fifth-desktop">

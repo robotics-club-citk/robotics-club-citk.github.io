@@ -85,6 +85,24 @@ layout: default
       </div>
       {% endfor %}
     </div>
+    <hr>
+
+    {% assign members = site.members | where:'type','member' | sort: 'priority' | reverse %}
+    <h1 class="title" id="members">Members</h1>
+    <div class="columns is-multiline">
+      {% for member in members %}
+      <div class="column is-one-quarter-tablet is-one-fifth-desktop">
+        <a class="box has-text-centered" href="{{ member.url }}">
+          <figure class="r-avatar image is-96x96">
+            <img alt="Image of {{ member.name }}" class="is-rounded"
+              src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}">
+          </figure>
+          <p class="r-name has-text-weight-semibold is-capitalized">{{ member.name }}</p>
+          <p class="r-role"><span class="tag is-rounded is-danger">{{ member.role }}</span></p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
 
   </div>
 </div>

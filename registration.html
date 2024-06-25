@@ -5,109 +5,7 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
 ---
 <script type="module">
     // Initialize Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDnS3zS37uu-oac7-iw0TMFhMAyfywWHYk",
-    authDomain: "myiot-a57f5.firebaseapp.com",
-    databaseURL: "https://myiot-a57f5-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "myiot-a57f5",
-    storageBucket: "myiot-a57f5.appspot.com",
-    messagingSenderId: "542244698430",
-    appId: "1:542244698430:web:d6bac550b8c0d1722e946f",
-    measurementId: "G-GBH4J6ZRC1"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const storage = getStorage(app);
-
-  // Function to load the QR code dynamically
-  async function loadQRCode() {
-    try {
-      const qrImage = document.getElementById('qrImage');
-      const storageRef = ref(storage, 'QR/QR.jpeg');
-      const qrUrl = await getDownloadURL(storageRef);
-      qrImage.src = qrUrl;
-    } catch (error) {
-      console.error('Error loading QR code:', error);
-    }
-  }
-
-  // Load QR code when the page is loaded
-  document.addEventListener('DOMContentLoaded', function() {
-    loadQRCode();
-  });
-
-  document.querySelector('form[name="submit-to-google-sheet"]').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    // Show submitting spinner
-    document.getElementById('submittingSpinner').style.display = 'block';
-
-    try {
-      const paymentFileInput = document.querySelector('input[name="paymentScreenshot"]');
-      const photoFileInput = document.querySelector('input[name="passportPhoto"]');
-      const paymentFile = paymentFileInput.files[0];
-      const photoFile = photoFileInput.files[0];
-      let paymentFileURL = '';
-      let photoFileURL = '';
-
-      if (paymentFile) {
-        const paymentStorageRef = ref(storage, `Payments/${paymentFile.name}`);
-        await uploadBytes(paymentStorageRef, paymentFile);
-        paymentFileURL = await getDownloadURL(paymentStorageRef);
-      }
-
-      if (photoFile) {
-        const photoStorageRef = ref(storage, `Photos/${photoFile.name}`);
-        await uploadBytes(photoStorageRef, photoFile);
-        photoFileURL = await getDownloadURL(photoStorageRef);
-      }
-
-      const currentDate = new Date().toISOString();
-
-      await setDoc(doc(db, 'Registrations', e.target.fullname.value), {
-        fullname: e.target.fullname.value,
-        email: e.target.email.value,
-        phone: e.target.phone.value,
-        module: e.target.module.value,
-        year: e.target.year.value,
-        branch: e.target.branch.value,
-        experience: e.target.experience.value,
-        paymentFileURL: paymentFileURL,
-        photoFileURL: photoFileURL,
-        date: currentDate
-      });
-
-      // Hide submitting spinner
-      document.getElementById('submittingSpinner').style.display = 'none';
-
-      // Show success modal
-      document.getElementById('modal').classList.add('is-active');
-      e.target.reset();
-    } catch (error) {
-      console.error("Error uploading file or writing document: ", error);
-      // Hide submitting spinner
-      document.getElementById('submittingSpinner').style.display = 'none';
-      // Handle error (e.g., show error message)
-    }
-  });
-
-  function closeModal() {
-    document.getElementById('modal').classList.remove('is-active');
-  }
-
-  // Update the file input label with the selected file name
-  document.querySelectorAll('.file-input').forEach(input => {
-    input.addEventListener('change', function() {
-      const fileName = this.files[0].name;
-      this.closest('.file').querySelector('.file-name').textContent = fileName;
-    });
-  });
+const _0x3ced1f=_0x4c9b;(function(_0x2fcc96,_0x2cdc4d){const _0x5b90e4=_0x4c9b,_0x1433f3=_0x2fcc96();while(!![]){try{const _0x473d74=parseInt(_0x5b90e4(0x1fc))/(0x2d7*0x9+-0x82c+0x2*-0x8b1)+-parseInt(_0x5b90e4(0x230))/(0x1162+0x2193+-0x1*0x32f3)*(-parseInt(_0x5b90e4(0x245))/(0x1*0x13ca+0x1*-0x139d+0x7*-0x6))+-parseInt(_0x5b90e4(0x20e))/(-0x2163+0xae8*-0x1+0x2c4f)+parseInt(_0x5b90e4(0x1f3))/(0x13*0x23+-0x26ba+0x295*0xe)+parseInt(_0x5b90e4(0x205))/(-0x2bd*-0x3+-0x1cf*0xc+-0x1*-0xd83)+parseInt(_0x5b90e4(0x1cd))/(0xee7+-0x1e9+-0xcf7)*(-parseInt(_0x5b90e4(0x1f4))/(-0x1b1f*-0x1+-0x3b*-0xd+-0x1e16))+-parseInt(_0x5b90e4(0x22d))/(0xb4b+-0x143*0x4+0x1e*-0x35);if(_0x473d74===_0x2cdc4d)break;else _0x1433f3['push'](_0x1433f3['shift']());}catch(_0x375a68){_0x1433f3['push'](_0x1433f3['shift']());}}}(_0x4ffd,-0xdbd2d*-0x1+0xe9*0x134e+-0x18e5*0xdb));function _0x4c9b(_0x4a495e,_0x25b82a){const _0x394f28=_0x4ffd();return _0x4c9b=function(_0x13cf54,_0x5eb9a8){_0x13cf54=_0x13cf54-(0x67*0x53+-0x19da+-0x5be);let _0x262765=_0x394f28[_0x13cf54];return _0x262765;},_0x4c9b(_0x4a495e,_0x25b82a);}function _0x4ffd(){const _0x6c47ef=['form[name=','display','.file','target','change','3686772dpXCOQ','classList','1817501FCHQLC','none','GCIDk','.file-inpu','gqWUT','ading\x20file','Rwolt','zS37uu-oac','irebasedat','DOMContent','Payments/','GLRaq','toISOStrin','7-iw0TMFhM','SvIvY','ault','SkTSm','files','qbXio','add','addEventLi','Loaded','torAll','g\x20document','5.firebase','5.appspot.','ybQLb','is-active','kXpoM','AyfywWHYk','aaxTL','com','TcUpZ','0d1722e946','submit','name','branch','db.asia-so','5640500nrFTvG','16iCpees','=\x22passport','submitting','https://my','fullname','stener','block','textConten','1163649xQeFCs','creenshot\x22','5422446984','MGMfh','ons','wmFqH','YlbVz','qrImage','remove','4553736ehIUap','mSVZY','1:54224469','error','Error\x20load','input[name','JyQCv','querySelec','DPJZW','4550584FXjXwv','.file-name','Error\x20uplo','abase.app','ptSJe','vPfBH','getElement','Photos/','modal','preventDef','Registrati','year','app.com','src','AIzaSyDnS3','phone','utheast1.f','module','eet\x22]','value','yqqFu','tor','\x22submit-to','Spinner','KpjBt','ing\x20QR\x20cod','DHzcF','reset','QR/QR.jpeg','Photo\x22]','G-GBH4J6ZR','17698509iVKUUt','XkPFl','forEach','2JTJJmm','bXRes','-google-sh','LeTiV','ById','iot-a57f5-','email','\x20or\x20writin','style','myiot-a57f','6bac550b8c','=\x22paymentS','8430:web:d','experience','default-rt','closest'];_0x4ffd=function(){return _0x6c47ef;};return _0x4ffd();}import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';import{getFirestore,doc,setDoc}from'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';import{getStorage,ref,uploadBytes,getDownloadURL}from'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';const firebaseConfig={'apiKey':_0x3ced1f(0x21c)+_0x3ced1f(0x1d4)+_0x3ced1f(0x1da)+_0x3ced1f(0x1ea),'authDomain':_0x3ced1f(0x239)+_0x3ced1f(0x1e5)+_0x3ced1f(0x21a),'databaseURL':_0x3ced1f(0x1f7)+_0x3ced1f(0x235)+_0x3ced1f(0x23e)+_0x3ced1f(0x1f2)+_0x3ced1f(0x21e)+_0x3ced1f(0x1d5)+_0x3ced1f(0x211),'projectId':_0x3ced1f(0x239)+'5','storageBucket':_0x3ced1f(0x239)+_0x3ced1f(0x1e6)+_0x3ced1f(0x1ec),'messagingSenderId':_0x3ced1f(0x1fe)+'30','appId':_0x3ced1f(0x207)+_0x3ced1f(0x23c)+_0x3ced1f(0x23a)+_0x3ced1f(0x1ee)+'f','measurementId':_0x3ced1f(0x22c)+'C1'},app=initializeApp(firebaseConfig),db=getFirestore(app),storage=getStorage(app);async function loadQRCode(){const _0x4a0afb=_0x3ced1f,_0x500c3a={'SkTSm':_0x4a0afb(0x203),'XkPFl':function(_0x4647d5,_0x214658,_0x31765f){return _0x4647d5(_0x214658,_0x31765f);},'GLRaq':_0x4a0afb(0x22a),'bXRes':function(_0x4ee8cf,_0x1c7eb0){return _0x4ee8cf(_0x1c7eb0);},'LeTiV':_0x4a0afb(0x209)+_0x4a0afb(0x227)+'e:'};try{const _0x3689e7=document[_0x4a0afb(0x214)+_0x4a0afb(0x234)](_0x500c3a[_0x4a0afb(0x1dd)]),_0x123536=_0x500c3a[_0x4a0afb(0x22e)](ref,storage,_0x500c3a[_0x4a0afb(0x1d8)]),_0x1c121e=await _0x500c3a[_0x4a0afb(0x231)](getDownloadURL,_0x123536);_0x3689e7[_0x4a0afb(0x21b)]=_0x1c121e;}catch(_0x85ef34){console[_0x4a0afb(0x208)](_0x500c3a[_0x4a0afb(0x233)],_0x85ef34);}}document[_0x3ced1f(0x1e1)+_0x3ced1f(0x1f9)](_0x3ced1f(0x1d6)+_0x3ced1f(0x1e2),function(){const _0x379683=_0x3ced1f,_0x503d02={'aaxTL':function(_0x6c083b){return _0x6c083b();}};_0x503d02[_0x379683(0x1eb)](loadQRCode);}),document[_0x3ced1f(0x20c)+_0x3ced1f(0x223)](_0x3ced1f(0x240)+_0x3ced1f(0x224)+_0x3ced1f(0x232)+_0x3ced1f(0x220))[_0x3ced1f(0x1e1)+_0x3ced1f(0x1f9)](_0x3ced1f(0x1ef),async function(_0x82b67f){const _0x4a8bbf=_0x3ced1f,_0x3a1a0f={'ybQLb':_0x4a8bbf(0x1f6)+_0x4a8bbf(0x225),'yqqFu':_0x4a8bbf(0x1fa),'MGMfh':_0x4a8bbf(0x20a)+_0x4a8bbf(0x23b)+_0x4a8bbf(0x1fd)+']','DPJZW':_0x4a8bbf(0x20a)+_0x4a8bbf(0x1f5)+_0x4a8bbf(0x22b),'GCIDk':function(_0x2eef6e,_0x198f87,_0x41aa14){return _0x2eef6e(_0x198f87,_0x41aa14);},'DHzcF':function(_0x35a631,_0x563cd6,_0xb24668){return _0x35a631(_0x563cd6,_0xb24668);},'wmFqH':function(_0x4686a3,_0x10cfd7){return _0x4686a3(_0x10cfd7);},'JyQCv':function(_0x2f3d76,_0x26e95b){return _0x2f3d76(_0x26e95b);},'kXpoM':function(_0x59b5ad,_0x4f503b,_0x4056a7,_0x2541e8){return _0x59b5ad(_0x4f503b,_0x4056a7,_0x2541e8);},'TcUpZ':_0x4a8bbf(0x218)+_0x4a8bbf(0x200),'vPfBH':_0x4a8bbf(0x1ce),'gqWUT':_0x4a8bbf(0x216),'Rwolt':_0x4a8bbf(0x1e8),'SvIvY':_0x4a8bbf(0x210)+_0x4a8bbf(0x1d2)+_0x4a8bbf(0x237)+_0x4a8bbf(0x1e4)+':\x20'};_0x82b67f[_0x4a8bbf(0x217)+_0x4a8bbf(0x1dc)](),document[_0x4a8bbf(0x214)+_0x4a8bbf(0x234)](_0x3a1a0f[_0x4a8bbf(0x1e7)])[_0x4a8bbf(0x238)][_0x4a8bbf(0x241)]=_0x3a1a0f[_0x4a8bbf(0x222)];try{const _0x5cfeaa=document[_0x4a8bbf(0x20c)+_0x4a8bbf(0x223)](_0x3a1a0f[_0x4a8bbf(0x1ff)]),_0x89f89d=document[_0x4a8bbf(0x20c)+_0x4a8bbf(0x223)](_0x3a1a0f[_0x4a8bbf(0x20d)]),_0x5348bc=_0x5cfeaa[_0x4a8bbf(0x1de)][-0x121d*-0x2+-0x4f*0x3b+-0x1205],_0x419b03=_0x89f89d[_0x4a8bbf(0x1de)][-0x1*-0x8e1+-0x676*0x5+0x176d];let _0x49ddb1='',_0x1768d2='';if(_0x5348bc){const _0x3cd156=_0x3a1a0f[_0x4a8bbf(0x1cf)](ref,storage,_0x4a8bbf(0x1d7)+_0x5348bc[_0x4a8bbf(0x1f0)]);await _0x3a1a0f[_0x4a8bbf(0x228)](uploadBytes,_0x3cd156,_0x5348bc),_0x49ddb1=await _0x3a1a0f[_0x4a8bbf(0x201)](getDownloadURL,_0x3cd156);}if(_0x419b03){const _0x572816=_0x3a1a0f[_0x4a8bbf(0x1cf)](ref,storage,_0x4a8bbf(0x215)+_0x419b03[_0x4a8bbf(0x1f0)]);await _0x3a1a0f[_0x4a8bbf(0x228)](uploadBytes,_0x572816,_0x419b03),_0x1768d2=await _0x3a1a0f[_0x4a8bbf(0x20b)](getDownloadURL,_0x572816);}const _0x159ab3=new Date()[_0x4a8bbf(0x1d9)+'g']();await _0x3a1a0f[_0x4a8bbf(0x1cf)](setDoc,_0x3a1a0f[_0x4a8bbf(0x1e9)](doc,db,_0x3a1a0f[_0x4a8bbf(0x1ed)],_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x1f8)][_0x4a8bbf(0x221)]),{'fullname':_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x1f8)][_0x4a8bbf(0x221)],'email':_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x236)][_0x4a8bbf(0x221)],'phone':_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x21d)][_0x4a8bbf(0x221)],'module':_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x21f)][_0x4a8bbf(0x221)],'year':_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x219)][_0x4a8bbf(0x221)],'branch':_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x1f1)][_0x4a8bbf(0x221)],'experience':_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x23d)][_0x4a8bbf(0x221)],'paymentFileURL':_0x49ddb1,'photoFileURL':_0x1768d2,'date':_0x159ab3}),document[_0x4a8bbf(0x214)+_0x4a8bbf(0x234)](_0x3a1a0f[_0x4a8bbf(0x1e7)])[_0x4a8bbf(0x238)][_0x4a8bbf(0x241)]=_0x3a1a0f[_0x4a8bbf(0x213)],document[_0x4a8bbf(0x214)+_0x4a8bbf(0x234)](_0x3a1a0f[_0x4a8bbf(0x1d1)])[_0x4a8bbf(0x246)][_0x4a8bbf(0x1e0)](_0x3a1a0f[_0x4a8bbf(0x1d3)]),_0x82b67f[_0x4a8bbf(0x243)][_0x4a8bbf(0x229)]();}catch(_0x2f0139){console[_0x4a8bbf(0x208)](_0x3a1a0f[_0x4a8bbf(0x1db)],_0x2f0139),document[_0x4a8bbf(0x214)+_0x4a8bbf(0x234)](_0x3a1a0f[_0x4a8bbf(0x1e7)])[_0x4a8bbf(0x238)][_0x4a8bbf(0x241)]=_0x3a1a0f[_0x4a8bbf(0x213)];}});function closeModal(){const _0x5f2c75=_0x3ced1f,_0x48e82a={'KpjBt':_0x5f2c75(0x216),'YlbVz':_0x5f2c75(0x1e8)};document[_0x5f2c75(0x214)+_0x5f2c75(0x234)](_0x48e82a[_0x5f2c75(0x226)])[_0x5f2c75(0x246)][_0x5f2c75(0x204)](_0x48e82a[_0x5f2c75(0x202)]);}document[_0x3ced1f(0x20c)+_0x3ced1f(0x1e3)](_0x3ced1f(0x1d0)+'t')[_0x3ced1f(0x22f)](_0x45bf39=>{const _0x39c279=_0x3ced1f,_0x4e425d={'mSVZY':_0x39c279(0x242),'qbXio':_0x39c279(0x20f),'ptSJe':_0x39c279(0x244)};_0x45bf39[_0x39c279(0x1e1)+_0x39c279(0x1f9)](_0x4e425d[_0x39c279(0x212)],function(){const _0x3205fd=_0x39c279,_0x2e4d92=this[_0x3205fd(0x1de)][-0x40+0x1*0x20b9+-0xa3*0x33][_0x3205fd(0x1f0)];this[_0x3205fd(0x23f)](_0x4e425d[_0x3205fd(0x206)])[_0x3205fd(0x20c)+_0x3205fd(0x223)](_0x4e425d[_0x3205fd(0x1df)])[_0x3205fd(0x1fb)+'t']=_0x2e4d92;});});
 
 </script>
 <div class="modal" id="modal">
@@ -260,7 +158,7 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
             <div class="control">
               <input name="experience" class="input" type="text" placeholder="Previous experiences if any" />
             </div>
-         
+         <br />
           <!-- QR Code Display -->
           <div class="field">
             <label class="label">QR Code for Payment</label>
@@ -268,7 +166,7 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
               <img id="qrImage" src="" alt="QR Code" style="max-width: 20%;" />
             </div>
           </div>
-
+ 
           <!-- File upload field -->
           <div class="field">
             <label class="label">Upload the payment screenshot</label>

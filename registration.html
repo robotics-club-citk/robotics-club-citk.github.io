@@ -154,13 +154,61 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
             <div class="control">
               <input name="experience" class="input" type="text" placeholder="Previous experiences if any" />
             </div>
-            <div class="PAYMENT-JUPITER-SHAMIM-QR-CODE">
-  <img src="assets/img/icon/roboics join QR.jpeg" alt="shamim QR CODE">
-</div>
+         
+          <!-- QR Code Display -->
+          <div class="field">
+            <label class="label">QR Code for Payment</label>
+            <div class="control">
+              <img id="qrImage" src="" alt="QR Code" style="max-width: 20%;" />
+            </div>
           </div>
 
+          <!-- File upload field -->
+          <div class="field">
+            <label class="label">Upload the payment screenshot</label>
+            <div class="file has-name">
+              <label class="file-label">
+                <input class="file-input" type="file" name="paymentScreenshot" required>
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+                <span class="file-name">
+                  No file uploaded
+                </span>
+              </label>
+            </div>
+          </div>        
+          <!-- File upload field for passport photo -->
+          <div class="field">
+            <label class="label">Upload your recent Passport sized photo</label>
+            <div class="file has-name">
+              <label class="file-label">
+                <input class="file-input" type="file" name="passportPhoto" required>
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose an image…
+                  </span>
+                </span>
+                <span class="file-name">
+                  No file uploaded
+                </span>
+              </label>
+            </div>
+          </div>          
           <br />
-
+          <div id="submittingSpinner" class="has-text-centered" style="display: none;">
+            <p>Submitting Your Response</p>
+            <progress class="progress is-small is-primary" max="50">Submitting...</progress>
+          </div>
+        <br />
           <div class="field is-grouped">
             <div class="control">
               <button type="submit" class="button is-link" id="submitButton">
@@ -174,44 +222,15 @@ description: Registration form for those who want to join Robotics Club CIT Kokr
         </form>
         <br>
         <br>
-
-
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  const scriptURL =
-    "https://script.google.com/macros/s/AKfycbwQSmZwhPYRFYv1rbjetjct882Jalomo7mkgq9GHiZprNX4lbPgIsPczhBBpTmZnBccBw/exec";
-
-  document.forms["submit-to-google-sheet"].addEventListener("submit", e => {
-    e.preventDefault();
-    document.getElementById("submitButton").classList.add("is-loading");
-    fetch(scriptURL, {
-      method: "POST",
-      body: new FormData(document.forms["submit-to-google-sheet"])
-    })
-      .then(response => {
-        {
-          if (response.ok) {
-            document
-              .getElementById("submitButton")
-              .classList.remove("is-loading");
-            document.getElementById("modal").classList.add("is-active");
-            document.forms["submit-to-google-sheet"].reset();
-          }
-        }
-      })
-      .catch(error => {
-        document.getElementById("submitButton").classList.remove("is-loading");
-        alert(
-          "Error occurred while submitting the form. Please contact developer and report this issue"
-        );
-      });
-  });
-
-  function closeModal() {
-    var modal = document.getElementById("modal").classList.remove("is-active");
-  }
-</script>
+<script src="scriptlive.js" type="Module"></script>
+<style>
+    .section {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>

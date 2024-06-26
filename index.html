@@ -28,7 +28,29 @@ layout: default
     <div class="has-text-centered">
       <a href="{{site.baseurl}}/registration/" class="button is-primary">Register now</a>
     </div>
+  </div>
+</div>
 
+<hr>
+
+<!-- carousel -->
+<div class="section">
+  <div class="container">
+    <h1 class="title">Gallery</h1>
+    <div class="carousel">
+      <input type="radio" name="position" id="pos1" checked />
+      <input type="radio" name="position" id="pos2" />
+      <input type="radio" name="position" id="pos3" />
+      <input type="radio" name="position" id="pos4" />
+      <input type="radio" name="position" id="pos5" />
+      <main id="carousel">
+        <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/gallery/DrRosemaryKoikara.jpeg');"></div>
+        <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/gallery/IMG_20170827_150413.jpg');"></div>
+        <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/gallery/IMG_20170827_195926.jpg');"></div>
+        <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/gallery/IMG_20170828_210603.jpg');"></div>
+        <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/gallery/IMG_20170830_192851.jpg');"></div>
+      </main>
+    </div>
   </div>
 </div>
 
@@ -160,26 +182,13 @@ layout: default
     if (dates.compare(eventDate, new Date()) >= 0)
       node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
   });
-</script>   add this corousel in here in this code and add the images as     <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/DrRosemaryKoikara.jpeg" alt="Dr Rosemary Koikara">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_150413.jpg" alt="Event Image 1">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_195926.jpg" alt="Event Image 2">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170828_210603.jpg" alt="Event Image 3">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170830_192851.jpg" alt="Event Image 4">
-          </figure>
+
+  let position = 1;
+  const totalItems = 5;
+  const intervalTime = 2000; // 2 seconds
+
+  setInterval(() => {
+    position = position % totalItems + 1;
+    document.getElementById(`pos${position}`).checked = true;
+  }, intervalTime);
+</script>

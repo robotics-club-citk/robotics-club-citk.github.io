@@ -19,7 +19,7 @@ layout: default
           Then Robotics Club, CITK is the right place for you. This club is created
           to bring out the creativity and imagination of students and to give them
           chance to become familiar with continuously evolving world of robotics.
-          Come forward and join us. Seminers, workshops and tutorials along with
+          Come forward and join us. Seminars, workshops and tutorials along with
           equipments, components and workspace eagerly await you!
         </p>
       </div>
@@ -31,18 +31,29 @@ layout: default
 
   </div>
 </div>
-   <!-- Carousel -->
+
+<!-- Carousel -->
 <div class="section">
   <div class="container">
     <h1 class="title">Carousel of Images</h1>
     <div class="columns is-centered">
       <div class="column is-two-thirds">
-        <main id="carousel">
-          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/DrRosemaryKoikara.jpeg');"></div>
-          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/IMG_20170827_150413.jpg');"></div>
-          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/IMG_20170827_195926.jpg');"></div>
-          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/IMG_20170828_210603.jpg');"></div>
-          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/IMG_20170830_192851.jpg');"></div>
+        <main id="carousel" class="carousel">
+          <div class="carousel-item active">
+            <img src="{{ site.baseurl }}/assets/img/gallery/DrRosemaryKoikara.jpeg" alt="Carousel Image 1">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_150413.jpg" alt="Carousel Image 2">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_195926.jpg" alt="Carousel Image 3">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170828_210603.jpg" alt="Carousel Image 4">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170830_192851.jpg" alt="Carousel Image 5">
+          </div>
         </main>
       </div>
     </div>
@@ -178,50 +189,40 @@ layout: default
       node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
   });
 </script>
+
 <style>
   /* Carousel Styles */
-  main#carousel {
+  .carousel {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 100%;
     overflow: hidden;
     position: relative;
   }
 
-  .item {
+  .carousel-item {
     width: 100%;
-    height: 100%;
+    height: 400px; /* Adjust height as needed */
     background-size: cover;
     background-position: center;
     position: absolute;
-    transition: transform 0.5s ease;
     opacity: 0;
+    transition: opacity 0.5s ease;
   }
 
-  .item.active {
+  .carousel-item.active {
     opacity: 1;
-    transform: scale(1);
   }
 </style>
+
 <script>
-  let position = 1;
+  let position = 0;
   const totalItems = 5; // Number of carousel items
 
   setInterval(() => {
-    const items = document.querySelectorAll('.item');
+    const items = document.querySelectorAll('.carousel-item');
     items.forEach(item => item.classList.remove('active'));
-    
-    position = position % totalItems + 1;
-    items[position - 1].classList.add('active');
 
-    // Reset the position to create the seamless loop effect
-    if (position === totalItems) {
-      setTimeout(() => {
-        position = 0;
-        items[position].classList.add('active');
-      }, 500); // Adjust timing as needed
-    }
+    position = (position + 1) % totalItems;
+    items[position].classList.add('active');
   }, 3000); // Interval time in milliseconds (adjust as needed)
 </script>

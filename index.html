@@ -6,95 +6,103 @@ layout: default
 <head>
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-</head>
-<!-- Image Carousel -->
-<div class="section">
-  <div class="container">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <!-- Add your images here -->
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/DrRosemaryKoikara.jpeg" alt="Dr Rosemary Koikara">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_150413.jpg" alt="Event Image 1">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_195926.jpg" alt="Event Image 2">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170828_210603.jpg" alt="Event Image 3">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170830_192851.jpg" alt="Event Image 4">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170908_194808.jpg" alt="Event Image 5">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20171111_123053.jpg" alt="Event Image 6">
-          </figure>
-        </div>
-        <div class="swiper-slide">
-          <figure class="image">
-            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20171121_144520.jpg" alt="Event Image 7">
-          </figure>
-        </div>
-        <!-- Add more slides as needed -->
-      </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
-      <!-- Add Navigation -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </div>
-</div>
 
-<script>
-  var swiper = new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 10,
+<!-- Image Carousel -->
+  
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    .swiper-slide {
+      transition: transform 0.3s, opacity 0.3s;
+      opacity: 0.5;
+    }
+    
+    .swiper-slide-active {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    .swiper-slide-prev, .swiper-slide-next {
+      transform: scale(0.8);
+      filter: blur(2px);
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- Add your images here -->
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/DrRosemaryKoikara.jpeg" alt="Dr Rosemary Koikara"></div>
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_150413.jpg" alt="Event Image 1"></div>
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_195926.jpg" alt="Event Image 2"></div>
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170828_210603.jpg" alt="Event Image 3"></div>
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170830_192851.jpg" alt="Event Image 4"></div>
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170908_194808.jpg" alt="Event Image 5"></div>
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/IMG_20171111_123053.jpg" alt="Event Image 6"></div>
+      <div class="swiper-slide"><img src="{{ site.baseurl }}/assets/img/gallery/IMG_20171121_144520.jpg" alt="Event Image 7"></div>
+      <!-- Add more slides as needed -->
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
       },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
       },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
-    },
-  });
-</script>
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+      on: {
+        slideChangeTransitionStart: function () {
+          let slides = document.querySelectorAll('.swiper-slide');
+          slides.forEach(slide => {
+            slide.classList.remove('swiper-slide-active', 'swiper-slide-prev', 'swiper-slide-next');
+          });
+          let activeSlide = document.querySelector('.swiper-slide-active');
+          if (activeSlide) {
+            activeSlide.classList.add('swiper-slide-active');
+            let prevSlide = activeSlide.previousElementSibling;
+            let nextSlide = activeSlide.nextElementSibling;
+            if (prevSlide) prevSlide.classList.add('swiper-slide-prev');
+            if (nextSlide) nextSlide.classList.add('swiper-slide-next');
+          }
+        },
+      }
+    });
+  </script>
+
+
 
 <!-- about -->
 <div class="section">

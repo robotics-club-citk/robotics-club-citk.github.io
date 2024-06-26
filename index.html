@@ -7,20 +7,53 @@ layout: default
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
-
 <!-- Image Carousel -->
 <div class="section">
   <div class="container">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        {% assign sorted-events = site.events | sort:'start-date' | reverse %}
-        {% for event in sorted-events limit:5 %}
+        <!-- Add your images here -->
         <div class="swiper-slide">
           <figure class="image">
-            <img src="{{ event.image }}" alt="{{ event.title }}">
+            <img src="{{ site.baseurl }}/assets/img/gallery/DrRosemaryKoikara.jpeg" alt="Dr Rosemary Koikara">
           </figure>
         </div>
-        {% endfor %}
+        <div class="swiper-slide">
+          <figure class="image">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_150413.jpg" alt="Event Image 1">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="image">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_195926.jpg" alt="Event Image 2">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="image">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170828_210603.jpg" alt="Event Image 3">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="image">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170830_192851.jpg" alt="Event Image 4">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="image">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170908_194808.jpg" alt="Event Image 5">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="image">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20171111_123053.jpg" alt="Event Image 6">
+          </figure>
+        </div>
+        <div class="swiper-slide">
+          <figure class="image">
+            <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20171121_144520.jpg" alt="Event Image 7">
+          </figure>
+        </div>
+        <!-- Add more slides as needed -->
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>

@@ -33,7 +33,119 @@ layout: default
 
 <hr>
 
- 
+  <!-- Carousel Section -->
+  <section class="carousel-section">
+    <input type="radio" name="position" id="pos1" checked />
+    <input type="radio" name="position" id="pos2" />
+    <input type="radio" name="position" id="pos3" />
+    <input type="radio" name="position" id="pos4" />
+    <input type="radio" name="position" id="pos5" />
+    <input type="radio" name="position" id="pos6" />
+    <input type="radio" name="position" id="pos0" />
+    <main id="carousel">
+      <div class="item" style="background-image: url('https://picsum.photos/300/400?random=5');"></div>
+      <div class="item" style="background-image: url('https://picsum.photos/300/400?random=1');"></div>
+      <div class="item" style="background-image: url('https://picsum.photos/300/400?random=2');"></div>
+      <div class="item" style="background-image: url('https://picsum.photos/300/400?random=3');"></div>
+      <div class="item" style="background-image: url('https://picsum.photos/300/400?random=4');"></div>
+      <div class="item" style="background-image: url('https://picsum.photos/300/400?random=5');"></div>
+      <div class="item" style="background-image: url('https://picsum.photos/300/400?random=1');"></div>
+    </main>
+  </section>
+
+  <!-- CSS Styles -->
+  <style>
+    body {
+      height: 600px;
+      margin: 0;
+      display: grid;
+      grid-template-rows: 500px 100px;
+      grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .carousel-section {
+      /* Adjust styling for the carousel section */
+      margin-top: 20px; /* Example margin */
+    }
+
+    main#carousel {
+      grid-row: 1 / 2;
+      grid-column: 1 / 8;
+      width: 100vw;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      perspective: 600px;
+      --items: 7;
+      --middle: 4;
+      --position: 2;
+      pointer-events: none;
+    }
+
+    div.item {
+      position: absolute;
+      width: 300px;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      --r: calc(var(--position) - var(--offset));
+      --abs: max(calc(var(--r) * -1), var(--r));
+      transition: all 0.25s linear;
+      transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+      z-index: calc((var(--position) - var(--abs)));
+    }
+
+    div.item:nth-of-type(1) {
+      --offset: 0;
+    }
+    div.item:nth-of-type(2) {
+      --offset: 1;
+    }
+    div.item:nth-of-type(3) {
+      --offset: 2;
+    }
+    div.item:nth-of-type(4) {
+      --offset: 3;
+    }
+    div.item:nth-of-type(5) {
+      --offset: 4;
+    }
+    div.item:nth-of-type(6) {
+      --offset: 5;
+    }
+    div.item:nth-of-type(7) {
+      --offset: 6;
+    }
+
+    input[type="radio"] {
+      /* Adjust radio input styles if needed */
+    }
+  </style>
+
+  <!-- JavaScript for Automatic Looping -->
+  <script>
+    let position = 1;
+    const totalItems = 6;
+    const intervalTime = 2000; // 2 seconds
+
+    setInterval(() => {
+      position = position % totalItems + 1;
+      document.getElementById(`pos${position}`).checked = true;
+
+      // Reset the position to create the seamless loop effect
+      if (position === totalItems) {
+        setTimeout(() => {
+          position = 1;
+          document.getElementById(`pos${position}`).checked = true;
+        }, intervalTime);
+      }
+    }, intervalTime);
+  </script>
 
 <hr>
 

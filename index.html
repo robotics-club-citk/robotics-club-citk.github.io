@@ -2,49 +2,7 @@
 layout: default
 ---
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{{ site.baseurl }}/">
-        <img src="{{ site.baseurl }}/assets/img/logo.png" alt="Logo">
-      </a>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="{{ site.baseurl }}/about/">About</a>
-        <a class="navbar-item" href="{{ site.baseurl }}/events/">Events</a>
-        <a class="navbar-item" href="{{ site.baseurl }}/projects/">Projects</a>
-        <a class="navbar-item" href="{{ site.baseurl }}/registration/">Registration</a>
-      </div>
-      <div class="navbar-end">
-        <!-- Add any additional navbar items here -->
-      </div>
-    </div>
-  </div>
-</nav>
-
-<!-- Carousel Section -->
-<section class="carousel-section">
-  <input type="radio" name="position" id="pos1" checked />
-  <input type="radio" name="position" id="pos2" />
-  <input type="radio" name="position" id="pos3" />
-  <input type="radio" name="position" id="pos4" />
-  <input type="radio" name="position" id="pos5" />
-  <input type="radio" name="position" id="pos6" />
-  <input type="radio" name="position" id="pos0" />
-  <main id="carousel">
-    <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/image1.jpg');"></div>
-    <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/image2.jpg');"></div>
-    <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/image3.jpg');"></div>
-    <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/image4.jpg');"></div>
-    <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/image5.jpg');"></div>
-    <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/image6.jpg');"></div>
-    <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/image1.jpg');"></div>
-  </main>
-</section>
-
-<!-- About Section -->
+<!-- about -->
 <div class="section">
   <div class="container">
     <div class="columns is-vcentered">
@@ -61,21 +19,22 @@ layout: default
           Then Robotics Club, CITK is the right place for you. This club is created
           to bring out the creativity and imagination of students and to give them
           chance to become familiar with continuously evolving world of robotics.
-          Come forward and join us. Seminars, workshops, and tutorials along with
-          equipment, components, and workspace eagerly await you!
+          Come forward and join us. Seminers, workshops and tutorials along with
+          equipments, components and workspace eagerly await you!
         </p>
       </div>
     </div>
 
     <div class="has-text-centered">
-      <a href="{{ site.baseurl }}/registration/" class="button is-primary">Register now</a>
+      <a href="{{site.baseurl}}/registration/" class="button is-primary">Register now</a>
     </div>
+
   </div>
 </div>
 
 <hr>
 
-<!-- Latest Events Section -->
+<!-- latest events -->
 <div class="section">
   <div class="container">
     <h1 class="title">Latest Events</h1>
@@ -105,7 +64,7 @@ layout: default
       </div>
     </div>
     <div class="has-text-centered">
-      <a class="button is-small is-rounded is-primary" href="{{ site.baseurl }}/events/">
+      <a class="button is-small is-rounded is-primary" href="{{site.baseurl}}/events/">
         <span>View all events</span>
       </a>
     </div>
@@ -114,7 +73,7 @@ layout: default
 
 <hr>
 
-<!-- Featured Projects Section -->
+<!-- featured projects -->
 <div class="section">
   <div class="container">
     <h1 class="title">Featured Projects</h1>
@@ -186,129 +145,19 @@ layout: default
       {% endfor %}
     </div>
     <div class="has-text-centered">
-      <a class="button is-small is-rounded is-primary" href="{{ site.baseurl }}/projects/">
+      <a class="button is-small is-rounded is-primary" href="{{site.baseurl}}/projects/">
         <span>View all projects</span>
       </a>
     </div>
   </div>
 </div>
 
-<!-- Scripts for Carousel -->
+<!-- for highlighting upcoming event-->
+<script src="{{ site.baseurl }}/assets/js/date-utility.js"></script>
 <script>
-  let position = 1;
-  const totalItems = 6;
-  const intervalTime = 2000; // 2 seconds
-
-  setInterval(() => {
-    position = position % totalItems + 1;
-    document.getElementById(`pos${position}`).checked = true;
-
-    // Reset position for seamless loop effect
-    if (position === totalItems) {
-      setTimeout(() => {
-        position = 1;
-        document.getElementById(`pos${position}`).checked = true;
-      }, intervalTime);
-    }
-  }, intervalTime);
+  document.querySelectorAll('.event-date').forEach(function (node) {
+    var eventDate = dates.convert(node.firstElementChild.innerHTML);
+    if (dates.compare(eventDate, new Date()) >= 0)
+      node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
+  });
 </script>
-
-<!-- CSS Styles -->
-<style>
-  /* Body styles */
-  body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Navbar styles */
-  .navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-  }
-
-  .navbar-brand img {
-    max-height: 3rem;
-    padding-left: 1rem;
-  }
-
-  .navbar-menu {
-    padding-right: 1rem;
-  }
-
-  .navbar-item {
-    padding: 0.5rem 1rem;
-    font-size: 1.1rem;
-  }
-
-  /* Carousel Section styles */
-  .carousel-section {
-    margin-top: 20px; /* Example margin */
-  }
-
-  main#carousel {
-    width: 100vw;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    perspective: 600px;
-    --items: 7;
-    --middle: 4;
-    --position: 2;
-    pointer-events: none;
-  }
-
-  div.item {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    --r: calc(var(--position) - var(--offset));
-    --abs: max(calc(var(--r) * -1), var(--r));
-    transition: all 0.25s linear;
-    transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
-    z-index: calc((var(--position) - var(--abs)));
-  }
-
-  div.item:nth-of-type(1) {
-    --offset: 0;
-  }
-
-  div.item:nth-of-type(2) {
-    --offset: 1;
-  }
-
-  div.item:nth-of-type(3) {
-    --offset: 2;
-  }
-
-  div.item:nth-of-type(4) {
-    --offset: 3;
-  }
-
-  div.item:nth-of-type(5) {
-    --offset: 4;
-  }
-
-  div.item:nth-of-type(6) {
-    --offset: 5;
-  }
-
-  div.item:nth-of-type(7) {
-    --offset: 6;
-  }
-
-  input[type="radio"] {
-    display: none;
-  }
-
-  /* Adjust radio input styles if needed */
-
-</style>
-

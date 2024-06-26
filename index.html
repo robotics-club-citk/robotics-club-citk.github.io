@@ -19,7 +19,7 @@ layout: default
           Then Robotics Club, CITK is the right place for you. This club is created
           to bring out the creativity and imagination of students and to give them
           chance to become familiar with continuously evolving world of robotics.
-          Come forward and join us. Seminers, workshops and tutorials along with
+          Come forward and join us. Seminars, workshops and tutorials along with
           equipments, components and workspace eagerly await you!
         </p>
       </div>
@@ -76,11 +76,11 @@ layout: default
 <!-- featured projects -->
 <div class="section">
   <div class="container">
-    <h1 class="title">Featured Projects</h1>
-    <div class="columns is-multiline">
+    <h1 class="title has-text-centered">Featured Projects</h1>
+    <div class="owl-carousel owl-theme">
       {% for project in site.projects %}
       {% if project.title == 'Robotic Arm' or project.title == 'Satellite image reception' or project.title == 'Room Automation' or project.title == 'Four sense Robotic car' %}
-      <div class="column is-half-tablet is-half-desktop">
+      <div class="item">
         <a href="{{ project.url }}" class="box r-border"
           style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
           <p class="has-text-weight-semibold is-capitalized">
@@ -159,5 +159,24 @@ layout: default
     var eventDate = dates.convert(node.firstElementChild.innerHTML);
     if (dates.compare(eventDate, new Date()) >= 0)
       node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
+  });
+
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      responsive:{
+        0:{
+          items: 1
+        },
+        600:{
+          items: 2
+        },
+        1000:{
+          items: 3
+        }
+      }
+    });
   });
 </script>

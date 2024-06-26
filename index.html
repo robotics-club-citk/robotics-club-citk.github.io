@@ -11,6 +11,24 @@ layout: default
           <img alt="Logo of Robotics club CIT Kokrajhar" class=""
             src="{{ site.baseurl }}/assets/img/icon/ROBOTICS CLUB LOGO.jpeg">
         </figure>
+        <!-- Carousel -->
+<div class="section">
+  <div class="container">
+    <h1 class="title">Carousel of Images</h1>
+    <div class="columns is-centered">
+      <div class="column is-two-thirds">
+        <main id="carousel">
+          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/DrRosemaryKoikara.jpeg');"></div>
+          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/IMG_20170827_150413.jpg');"></div>
+          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/IMG_20170827_195926.jpg');"></div>
+          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/IMG_20170828_210603.jpg');"></div>
+          <div class="item" style="background-image: url('{{ site.baseurl }}/assets/img/carousel/IMG_20170830_192851.jpg');"></div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
       <div class="column is-two-thirds">
         <h1 class="title">About us</h1>
@@ -160,4 +178,51 @@ layout: default
     if (dates.compare(eventDate, new Date()) >= 0)
       node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
   });
+</script>
+<style>
+  /* Carousel Styles */
+  main#carousel {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .item {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    transition: transform 0.5s ease;
+    opacity: 0;
+  }
+
+  .item.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
+<script>
+  let position = 1;
+  const totalItems = 5; // Number of carousel items
+
+  setInterval(() => {
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => item.classList.remove('active'));
+    
+    position = position % totalItems + 1;
+    items[position - 1].classList.add('active');
+
+    // Reset the position to create the seamless loop effect
+    if (position === totalItems) {
+      setTimeout(() => {
+        position = 0;
+        items[position].classList.add('active');
+      }, 500); // Adjust timing as needed
+    }
+  }, 3000); // Interval time in milliseconds (adjust as needed)
 </script>

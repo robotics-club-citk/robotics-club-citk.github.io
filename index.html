@@ -1,163 +1,215 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics Club CIT Kokrajhar</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
 
-<!-- about -->
-<div class="section">
-  <div class="container">
-    <div class="columns is-vcentered">
-      <div class="column is-one-thirds has-text-centered">
-        <figure class="image is-inline-block" style="max-width: 300px">
-          <img alt="Logo of Robotics club CIT Kokrajhar" class=""
-            src="{{ site.baseurl }}/assets/img/icon/ROBOTICS CLUB LOGO.jpeg">
-        </figure>
-      </div>
-      <div class="column is-two-thirds">
-        <h1 class="title">About us</h1>
-        <p>
-          Do you want to build your own robot? Or an awesome electronics project?
-          Then Robotics Club, CITK is the right place for you. This club is created
-          to bring out the creativity and imagination of students and to give them
-          chance to become familiar with continuously evolving world of robotics.
-          Come forward and join us. Seminers, workshops and tutorials along with
-          equipments, components and workspace eagerly await you!
-        </p>
-      </div>
-    </div>
-
-    <div class="has-text-centered">
-      <a href="{{site.baseurl}}/registration/" class="button is-primary">Register now</a>
-    </div>
-
-  </div>
-</div>
-
-<hr>
-
-<!-- latest events -->
-<div class="section">
-  <div class="container">
-    <h1 class="title">Latest Events</h1>
-    <div class="columns is-centered">
-      <div class="column is-two-thirds">
-        <div class="timeline">
-          {% assign sorted-events = site.events | sort:'start-date' | reverse %}
-          {% for event in sorted-events limit:3 %}
-          <div class="timeline-item is-block">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <p class="heading event-date">
-                <span>{{ event.start-date | date: '%b %d, %Y' }}</span>
-              </p>
-
-              <a class="box" href="{{ event.url }}"
-                style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
-                <p class="has-text-weight-semibold">{{ event.title }}</p>
-                <p>{{ event.place }}</p>
-                <p>{{ event.start-date | date: ' %I:%M %p' }}</p>
-              </a>
-
-            </div>
-          </div>
-          {% endfor %}
+  <!-- about -->
+  <div class="section">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-one-thirds has-text-centered">
+          <figure class="image is-inline-block" style="max-width: 300px">
+            <img alt="Logo of Robotics club CIT Kokrajhar" class="" src="{{ site.baseurl }}/assets/img/icon/ROBOTICS CLUB LOGO.jpeg">
+          </figure>
+        </div>
+        <div class="column is-two-thirds">
+          <h1 class="title">About us</h1>
+          <p>
+            Do you want to build your own robot? Or an awesome electronics project?
+            Then Robotics Club, CITK is the right place for you. This club is created
+            to bring out the creativity and imagination of students and to give them
+            chance to become familiar with continuously evolving world of robotics.
+            Come forward and join us. Seminers, workshops and tutorials along with
+            equipments, components and workspace eagerly await you!
+          </p>
         </div>
       </div>
-    </div>
-    <div class="has-text-centered">
-      <a class="button is-small is-rounded is-primary" href="{{site.baseurl}}/events/">
-        <span>View all events</span>
-      </a>
+      <div class="has-text-centered">
+        <a href="{{site.baseurl}}/registration/" class="button is-primary">Register now</a>
+      </div>
     </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<!-- featured projects -->
-<div class="section">
-  <div class="container">
-    <h1 class="title">Featured Projects</h1>
-    <div class="columns is-multiline">
-      {% for project in site.projects %}
-      {% if project.title == 'Robotic Arm' or project.title == 'Satellite image reception' or project.title == 'Room Automation' or project.title == 'Four sense Robotic car' %}
-      <div class="column is-half-tablet is-half-desktop">
-        <a href="{{ project.url }}" class="box r-border"
-          style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
-          <p class="has-text-weight-semibold is-capitalized">
-            {{ project.title }}
-          </p>
-          <p class="is-size-7">
-            {% if project.status == 'completed' %}
-            <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
-            {% else %}
-            <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
-            {% endif %}
-            <span class="is-capitalized">{{ project.status }}</span>
-
-            {% if project.youtube-video %}
-            <span class="icon has-text-danger"><i class="fab fa-youtube"></i></span>
-            <span>Video available</span>
-            {% endif %}
-            {% if project.images %}
-            <span class="icon has-text-link"><i class="fas fa-images"></i></span>
-            <span>Images available</span>
-            {% endif %}
-          </p>
-          <br>
-          <!-- member avatars -->
-          <div class="columns is-mobile is-centered is-variable is-1">
-            {% for member-username in project.member-usernames %}
-            <!-- to display a number if members > 4 -->
-            {% if forloop.index >= 4 and forloop.length > 4 %}
-            {% if forloop.last %}
-            <div class="column is-narrow">
-              <span class="r-circle is-primary">+{{ forloop.length | minus: 3 }}</span>
+  <!-- latest events -->
+  <div class="section">
+    <div class="container">
+      <h1 class="title">Latest Events</h1>
+      <div class="columns is-centered">
+        <div class="column is-two-thirds">
+          <div class="timeline">
+            {% assign sorted-events = site.events | sort:'start-date' | reverse %}
+            {% for event in sorted-events limit:3 %}
+            <div class="timeline-item is-block">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <p class="heading event-date">
+                  <span>{{ event.start-date | date: '%b %d, %Y' }}</span>
+                </p>
+                <a class="box" href="{{ event.url }}" style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
+                  <p class="has-text-weight-semibold">{{ event.title }}</p>
+                  <p>{{ event.place }}</p>
+                  <p>{{ event.start-date | date: ' %I:%M %p' }}</p>
+                </a>
+              </div>
             </div>
-            {% break %}
-            {% else %}
-            {% continue %}
-            {% endif %}
-            {% endif %}
-            <!-- if project done by robotics club -->
-            {% if member-username == 'club' %}
-            <div class="column is-narrow">
-              <span class="tag is-rounded is-medium">
-                <span class="icon"><i class="fa fa-users"></i></span>
-                <span class="is-size-7 has-text-weight-semibold">Robotics Club Team</span>
-              </span>
-            </div>
-            {% else %}
-            {% assign member = site.members | where:'username',member-username | first %}
-            {% if member != null %}
-            <div class="column is-narrow">
-              <figure class="image is-32x32">
-                <img alt="Image of {{ member.name }}" class="is-rounded"
-                  src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
-              </figure>
-            </div>
-            {% endif %}
-            {% endif %}
             {% endfor %}
           </div>
+        </div>
+      </div>
+      <div class="has-text-centered">
+        <a class="button is-small is-rounded is-primary" href="{{site.baseurl}}/events/">
+          <span>View all events</span>
         </a>
       </div>
-      {% endif %}
-      {% endfor %}
-    </div>
-    <div class="has-text-centered">
-      <a class="button is-small is-rounded is-primary" href="{{site.baseurl}}/projects/">
-        <span>View all projects</span>
-      </a>
     </div>
   </div>
-</div>
 
-<!-- for highlighting upcoming event-->
-<script src="{{ site.baseurl }}/assets/js/date-utility.js"></script>
-<script>
-  document.querySelectorAll('.event-date').forEach(function (node) {
-    var eventDate = dates.convert(node.firstElementChild.innerHTML);
-    if (dates.compare(eventDate, new Date()) >= 0)
-      node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
-  });
-</script>
+  <hr>
+
+  <!-- featured projects -->
+  <div class="section">
+    <div class="container">
+      <h1 class="title">Featured Projects</h1>
+      <div class="columns is-multiline">
+        {% for project in site.projects %}
+        {% if project.title == 'Robotic Arm' or project.title == 'Satellite image reception' or project.title == 'Room Automation' or project.title == 'Four sense Robotic car' %}
+        <div class="column is-half-tablet is-half-desktop">
+          <a href="{{ project.url }}" class="box r-border" style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
+            <p class="has-text-weight-semibold is-capitalized">{{ project.title }}</p>
+            <p class="is-size-7">
+              {% if project.status == 'completed' %}
+              <span class="icon has-text-success"><i class="fa fa-check-circle"></i></span>
+              {% else %}
+              <span class="icon has-text-link"><i class="fa fa-sync-alt"></i></span>
+              {% endif %}
+              <span class="is-capitalized">{{ project.status }}</span>
+              {% if project.youtube-video %}
+              <span class="icon has-text-danger"><i class="fab fa-youtube"></i></span>
+              <span>Video available</span>
+              {% endif %}
+              {% if project.images %}
+              <span class="icon has-text-link"><i class="fas fa-images"></i></span>
+              <span>Images available</span>
+              {% endif %}
+            </p>
+            <br>
+            <!-- member avatars -->
+            <div class="columns is-mobile is-centered is-variable is-1">
+              {% for member-username in project.member-usernames %}
+              {% if forloop.index >= 4 and forloop.length > 4 %}
+              {% if forloop.last %}
+              <div class="column is-narrow">
+                <span class="r-circle is-primary">+{{ forloop.length | minus: 3 }}</span>
+              </div>
+              {% break %}
+              {% else %}
+              {% continue %}
+              {% endif %}
+              {% endif %}
+              {% if member-username == 'club' %}
+              <div class="column is-narrow">
+                <span class="tag is-rounded is-medium">
+                  <span class="icon"><i class="fa fa-users"></i></span>
+                  <span class="is-size-7 has-text-weight-semibold">Robotics Club Team</span>
+                </span>
+              </div>
+              {% else %}
+              {% assign member = site.members | where:'username',member-username | first %}
+              {% if member != null %}
+              <div class="column is-narrow">
+                <figure class="image is-32x32">
+                  <img alt="Image of {{ member.name }}" class="is-rounded" src="{{ site.baseurl }}/assets/img/avatars/members/{{ member.avatar }}" title="{{ member.name }}">
+                </figure>
+              </div>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+            </div>
+          </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="has-text-centered">
+        <a class="button is-small is-rounded is-primary" href="{{site.baseurl}}/projects/">
+          <span>View all projects</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Carousel section -->
+  <div class="section">
+    <div class="container">
+      <h1 class="title">Gallery</h1>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <figure class="image">
+              <img src="{{ site.baseurl }}/assets/img/gallery/DrRosemaryKoikara.jpeg" alt="Dr Rosemary Koikara">
+            </figure>
+          </div>
+          <div class="swiper-slide">
+            <figure class="image">
+              <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_150413.jpg" alt="Event Image 1">
+            </figure>
+          </div>
+          <div class="swiper-slide">
+            <figure class="image">
+              <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170827_195926.jpg" alt="Event Image 2">
+            </figure>
+          </div>
+          <div class="swiper-slide">
+            <figure class="image">
+              <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170828_210603.jpg" alt="Event Image 3">
+            </figure>
+          </div>
+          <div class="swiper-slide">
+            <figure class="image">
+              <img src="{{ site.baseurl }}/assets/img/gallery/IMG_20170830_192851.jpg" alt="Event Image 4">
+            </figure>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Existing content -->
+
+  <script src="{{ site.baseurl }}/assets/js/date-utility.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    document.querySelectorAll('.event-date').forEach(function (node) {
+      var eventDate = dates.convert(node.firstElementChild.innerHTML);
+      if (dates.compare(eventDate, new Date()) >= 0)
+        node.insertAdjacentHTML('beforeend', '<span class="icon has-text-danger"><i class="fa fa-certificate"></i></span><span class="has-text-danger">Upcoming</span>');
+    });
+  </script>
+</body>
+</html>

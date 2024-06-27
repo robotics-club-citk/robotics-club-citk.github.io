@@ -42,14 +42,33 @@
         opacity: 0;
       }
     }
+    .live-indicator {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+    }
   </style>
+<!-- Live Indicator -->
+<div class="live-indicator">
+  <span class="blinking-dot"></span>
+  Form is live
+</div>
+
 <!-- Header -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="https://roboticsclub.cit.ac.in/assets/img/icon/logon.jpeg" alt="Robotics Club Logo">
     </a>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -59,11 +78,7 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="https://roboticsclub.cit.ac.in/">
-       Home
-      </a>
-      <a class="navbar-item" href="#">
-        <span class="blinking-dot"></span>
-        Form is live
+        Home
       </a>
     </div>
   </div>

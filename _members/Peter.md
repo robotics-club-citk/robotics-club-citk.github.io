@@ -6,7 +6,7 @@ email: u22ece1018@cit.ac.in
 phone: 7637811645
 avatar: Peter.jpg
 role: Convenor
-type: Core
+type: Convenor
 roll: 20220231018
 branch: ECE
 education: Btech

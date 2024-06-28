@@ -10,5 +10,5 @@ type: convenor
 roll: 20220231018
 branch: ECE
 education: Btech
-priority: 3
+priority: 1
 ---
